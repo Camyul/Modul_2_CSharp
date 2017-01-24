@@ -25,7 +25,7 @@
             }
             set
             {
-                this.name = name;
+                this.name = value;
             }
         }
 

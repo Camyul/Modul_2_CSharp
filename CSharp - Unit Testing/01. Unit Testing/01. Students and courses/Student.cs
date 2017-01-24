@@ -9,6 +9,7 @@
     {
         private string name;
         private int idNumber;
+        
 
         public Student(string name, int id)
         {

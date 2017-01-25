@@ -30,6 +30,10 @@
 
         public void AddStudent(Student st)
         {
+            if (st == null)
+            {
+                throw new ArgumentNullException();
+            }
             this.AllStudents.Add(st);
         }
 

@@ -43,6 +43,10 @@
 
         public void AddStudent(Student st)
         {
+            if (st == null)
+            {
+                throw new ArgumentNullException();
+            }
             if (StList.Count >= studentsInClass)
             {
                 throw new ArgumentOutOfRangeException("Number of Student in Class must be 30");
@@ -52,6 +56,10 @@
 
         public void RemoveStudent(Student st)
         {
+            if (st == null)
+            {
+                throw new ArgumentNullException();
+            }
             int num = this.StList.IndexOf(st);
             this.StList.RemoveAt(num);
         }

@@ -6,6 +6,7 @@
     using System.Collections.Generic;
     using System.Collections;
     using System.Linq;
+    using Moq;
     [TestClass]
     public class CardTests
     {
@@ -34,5 +35,21 @@
 
             Assert.AreEqual(hand.ToString(), handToStr);
         } 
+
+        [TestMethod]
+        public void IsValidHand_ShouldBeTrueIfAllCardsIsDifferent()
+        {
+            IHand hand = new Hand(new List<ICard> {
+                new Card(CardFace.Four, CardSuit.Diamonds ),
+                new Card(CardFace.Four, CardSuit.Clubs ),
+                new Card(CardFace.Four, CardSuit.Hearts ),
+                new Card(CardFace.Four, CardSuit.Spades ),
+                new Card(CardFace.Five, CardSuit.Diamonds )
+            });
+            IPokerHandsChecker check = new PokerHandsChecker();
+
+            //Act & Assert
+            Assert.AreEqual(true,  check.IsValidHand(hand));
+        }
     }
 }

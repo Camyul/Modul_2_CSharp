@@ -39,6 +39,7 @@
         [TestMethod]
         public void IsValidHand_ShouldBeTrueIfAllCardsIsDifferent()
         {
+            //Arange
             IHand hand = new Hand(new List<ICard> {
                 new Card(CardFace.Four, CardSuit.Diamonds ),
                 new Card(CardFace.Four, CardSuit.Clubs ),
@@ -50,6 +51,23 @@
 
             //Act & Assert
             Assert.AreEqual(true,  check.IsValidHand(hand));
+        }
+
+        [TestMethod]
+        public void IsValidHand_ShouldBeTrueIfCountOfCardsIsFive()
+        {
+            //Arange
+            int countOfCargs = 5;
+            IHand hand = new Hand(new List<ICard> {
+                new Card(CardFace.Four, CardSuit.Diamonds ),
+                new Card(CardFace.Four, CardSuit.Clubs ),
+                new Card(CardFace.Four, CardSuit.Hearts ),
+                new Card(CardFace.Four, CardSuit.Spades ),
+                new Card(CardFace.Five, CardSuit.Diamonds )
+            });
+
+            //Act & Assert
+            Assert.AreEqual(countOfCargs, hand.Cards.Count);
         }
     }
 }

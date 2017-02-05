@@ -52,6 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Provider\ConsoleLoggerTests\LogTests.cs" />
+    <Compile Include="Core\Provider\IdProviderTests\NextIdTests.cs" />
+    <Compile Include="Core\TaskManagerTests\AddTest.cs" />
+    <Compile Include="Core\TaskManagerTests\Fakes\TaskManagerFake.cs" />
+    <Compile Include="Models\TaskTest\CtorTest.cs" />
     <Compile Include="Models\TaskTest\DescriptionTests.cs" />
     <Compile Include="Models\TaskTest\IdTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,8 +64,15 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Core\" />
+    <ProjectReference Include="..\Tasker\Tasker.csproj">
+      <Project>{9449c1bc-b8c0-484e-ae84-05ed282466f8}</Project>
+      <Name>Tasker</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,8 +1,9 @@
 ﻿using System;
+using Tasker.Models.Contracts;
 
 namespace Tasker.Models
 {
-    public class Task
+    public class Task : ITask
     {
         public Task(string description)
         {

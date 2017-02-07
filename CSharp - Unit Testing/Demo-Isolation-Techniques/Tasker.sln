@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasker", "Tasker\Tasker.csproj", "{C1314E55-C63C-4F86-8024-DCDA8FF3CCD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasker.Tests", "Tasker.Tests\Tasker.Tests.csproj", "{91C7F264-01D0-4F82-88AF-BA15A6C6C836}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C1314E55-C63C-4F86-8024-DCDA8FF3CCD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1314E55-C63C-4F86-8024-DCDA8FF3CCD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1314E55-C63C-4F86-8024-DCDA8FF3CCD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91C7F264-01D0-4F82-88AF-BA15A6C6C836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C7F264-01D0-4F82-88AF-BA15A6C6C836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C7F264-01D0-4F82-88AF-BA15A6C6C836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C7F264-01D0-4F82-88AF-BA15A6C6C836}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

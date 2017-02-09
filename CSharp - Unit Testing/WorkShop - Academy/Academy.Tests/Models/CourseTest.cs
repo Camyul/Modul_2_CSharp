@@ -362,7 +362,8 @@
 
 
             //Act & Assert
-            Assert.AreNotEqual(-1, testCourse.ToString().Contains("  * There are no lectures in this course!"));
+            Assert.AreNotEqual(-1, testCourse.ToString().IndexOf("  * There are no lectures in this course!"));
+            //Assert.AreEqual(true, testCourse.ToString().Contains("  * There are no lectures in this course!")); //Също работи
         }
     }
 }

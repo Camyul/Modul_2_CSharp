@@ -59,6 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Adding\AddStudentsToSeasonCommandsTest.cs" />
+    <Compile Include="Core\Factories\AcademyFactoryTest.cs" />
     <Compile Include="Models\Abstractions\UserAbstractClassTesting.cs" />
     <Compile Include="Models\Abstractions\UserTest.cs" />
     <Compile Include="Models\CourseTest.cs" />

@@ -63,6 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Adding\AddingToSeasonCommandsTests\Constructor_Should.cs" />
+    <Compile Include="Commands\Adding\AddingToSeasonCommandsTests\Execute_Should.cs" />
+    <Compile Include="Commands\Adding\Mock\AddStudentToSeasonCommandMock.cs" />
     <Compile Include="Core\Factories\AcademyFactoryTests\CreateLecturesResource_Should.cs" />
     <Compile Include="Models\Abstractions\Mock\UserMock.cs" />
     <Compile Include="Models\Abstractions\UserTests\GetUser_Should.cs" />

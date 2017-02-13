@@ -22,7 +22,7 @@ namespace Academy.Core.Providers
             //   The singleton instance of the AcademyFactory class
             //   The singleton instance of the Engine class
             // Then it casts the whole thing from object to ICommand
-            var command = Activator.CreateInstance(commandTypeInfo, AcademyFactory.Instance, Engine.Instance) as ICommand;
+            var command = Activator.CreateInstance(commandTypeInfo, AddStudentToSeasonCommand.Instance, Engine.Instance) as ICommand;
 
             return command;
         }

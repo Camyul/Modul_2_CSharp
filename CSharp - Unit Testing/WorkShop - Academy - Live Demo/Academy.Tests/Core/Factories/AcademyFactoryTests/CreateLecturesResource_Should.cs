@@ -16,7 +16,7 @@ namespace Academy.Tests.Core.Factories.AcademyFactoryTests
         public void ReturnVideoResource_WhenVideoTypeIsPassed()
         {
             //Arrange
-            var factory = AcademyFactory.Instance;
+            var factory = AddStudentToSeasonCommand.Instance;
 
             //Act
             var resource = factory.CreateLectureResource("video", "Pesho's video", "11115");
@@ -29,7 +29,7 @@ namespace Academy.Tests.Core.Factories.AcademyFactoryTests
         public void ReturnDemoResource_WhenDemoTypeIsPassed()
         {
             //Arrange
-            var factory = AcademyFactory.Instance;
+            var factory = AddStudentToSeasonCommand.Instance;
 
             //Act
             var resource = factory.CreateLectureResource("demo", "Pesho's video", "11115");
@@ -42,7 +42,7 @@ namespace Academy.Tests.Core.Factories.AcademyFactoryTests
         public void ReturnPresentationResource_WhenPresentationTypeIsPassed()
         {
             //Arrange
-            var factory = AcademyFactory.Instance;
+            var factory = AddStudentToSeasonCommand.Instance;
 
             //Act
             var resource = factory.CreateLectureResource("presentation", "Pesho's video", "11115");
@@ -55,7 +55,7 @@ namespace Academy.Tests.Core.Factories.AcademyFactoryTests
         public void ReturnHomeworkResource_WhenHomeworkTypeIsPassed()
         {
             //Arrange
-            var factory = AcademyFactory.Instance;
+            var factory = AddStudentToSeasonCommand.Instance;
 
             //Act
             var resource = factory.CreateLectureResource("homework", "Pesho's video", "11115");
@@ -68,7 +68,7 @@ namespace Academy.Tests.Core.Factories.AcademyFactoryTests
         public void ThrowArgumentException_WhenInvalidTypeIsPassed()
         {
             //Arrange
-            var factory = AcademyFactory.Instance;
+            var factory = AddStudentToSeasonCommand.Instance;
             
 
             //Act & Assert

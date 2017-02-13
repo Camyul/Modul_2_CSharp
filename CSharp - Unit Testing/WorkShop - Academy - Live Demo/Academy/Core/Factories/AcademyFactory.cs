@@ -10,12 +10,12 @@ using System;
 
 namespace Academy.Core.Factories
 {
-    public class AcademyFactory : IAcademyFactory
+    public class AddStudentToSeasonCommand : IAcademyFactory
     {
-        private static IAcademyFactory instanceHolder = new AcademyFactory();
+        private static IAcademyFactory instanceHolder = new AddStudentToSeasonCommand();
 
         // private because of Singleton design pattern
-        private AcademyFactory()
+        private AddStudentToSeasonCommand()
         {
         }
 

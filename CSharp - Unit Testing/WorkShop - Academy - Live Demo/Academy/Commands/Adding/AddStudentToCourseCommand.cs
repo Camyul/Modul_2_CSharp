@@ -27,6 +27,23 @@ namespace Academy.Commands.Adding
             this.engine = engine;
         }
 
+        public IAcademyFactory Factory
+        {
+            get
+            {
+                return this.factory;
+            }
+        }
+
+        public IEngine Engine
+        {
+            get
+            {
+                return this.engine;
+            }
+
+        }
+
         public string Execute(IList<string> parameters)
         {
             var studentUsername = parameters[0];

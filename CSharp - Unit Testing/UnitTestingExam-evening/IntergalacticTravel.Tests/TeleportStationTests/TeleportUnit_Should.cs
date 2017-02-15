@@ -18,7 +18,6 @@ namespace IntergalacticTravel.Tests.TeleportStationTests
         {
             //Arrange
             var targetLocation = new Mock<ILocation>();
-            //var teleportStationMock = new TeleportStationMock(ownerStub.Object, galacticMapStub.Object, locationStub.Object);targetLocation.SetupGet(x => x.Planet.Name).Returns("Protos");
 
             var ownerStub = new Mock<IBusinessOwner>();
             var galacticMapStub = new Mock<IEnumerable<IPath>>();
@@ -45,5 +44,30 @@ namespace IntergalacticTravel.Tests.TeleportStationTests
             //Act & Assert
             Assert.Throws<ArgumentNullException>(() => teleportStationMock.TeleportUnit(unitToTeleport, null));
         }
-    }
+
+
+
+    //    [Test]
+    //    public void TeleportUnitShouldRequirePaymen_WhenPassedValueIsValid()
+    //    {
+    //        //Arrange
+    //        var targetLocation = new Mock<ILocation>();
+           
+    //        var unitToTeleport = new Unit(123, "BattleShip Galaktica");
+
+    //        var resourceStub = new Resources(0, 0, 50);
+
+    //        unitToTeleport.Resources.Add(resourceStub);
+            
+    //        var pathToPlanet = new Mock<IPath>();
+    //        pathToPlanet.SetupGet(x => x.Cost).Returns(resourceStub);
+            
+
+    //        var teleportStationMock = new Mock<TeleportStationMock>();
+    //        teleportStationMock.Object.TeleportUnit(unitToTeleport, targetLocation.Object);
+
+    //        //Act & Assert
+    //        teleportStationMock.Verify(x => x.TeleportUnit(It.IsAny<IUnit>(), It.IsAny<ILocation>()), Times.Once);
+    //    }
+    //}
 }

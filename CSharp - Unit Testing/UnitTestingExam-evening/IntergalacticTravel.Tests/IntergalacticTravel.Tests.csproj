@@ -79,6 +79,7 @@
     <Compile Include="TeleportStationTests\TeleportUnit_Should.cs" />
     <Compile Include="UnitFactoryTests\CreateUnit_Should.cs" />
     <Compile Include="UnitFactoryTests\CreateUnit_Throw.cs" />
+    <Compile Include="UnitTests\Pay_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

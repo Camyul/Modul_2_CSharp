@@ -76,6 +76,7 @@
     <Compile Include="Mock\TeleportStationMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeleportStationTests\CtorTeleportStation_Should.cs" />
+    <Compile Include="TeleportStationTests\TeleportUnit_Should.cs" />
     <Compile Include="UnitFactoryTests\CreateUnit_Should.cs" />
     <Compile Include="UnitFactoryTests\CreateUnit_Throw.cs" />
   </ItemGroup>

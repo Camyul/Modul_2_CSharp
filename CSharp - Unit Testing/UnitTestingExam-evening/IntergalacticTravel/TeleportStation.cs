@@ -21,6 +21,7 @@ namespace IntergalacticTravel
             this.location = location;
             this.resources = new Resources();
         }
+        
 
         public void TeleportUnit(IUnit unitToTeleport, ILocation targetLocation)
         {

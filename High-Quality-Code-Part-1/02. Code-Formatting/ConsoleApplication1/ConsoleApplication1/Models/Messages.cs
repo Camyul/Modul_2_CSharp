@@ -1,10 +1,6 @@
 ﻿namespace ConsoleApplication1.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
 
     public static class Messages
     {
@@ -26,7 +22,9 @@
                 output.AppendFormat("{0} events deleted\n", x);
             }
         }
+
         public static void NoEventsFound()
+
         {
             output.Append("No events found\n");
         }

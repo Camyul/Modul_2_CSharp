@@ -13,11 +13,13 @@
             var singleWhitespace = ' ';
             foreach (var letter in sequence)
             {
-                if (Char.IsUpper(letter))
+                if (char.IsUpper(letter))
                 {
                     builder.Append(singleWhitespace);
                 }
+
                 builder.Append(letter);
+
             }
             return builder.ToString().Trim();
         }

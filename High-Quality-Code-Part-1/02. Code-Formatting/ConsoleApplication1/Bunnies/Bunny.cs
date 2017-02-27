@@ -1,19 +1,19 @@
 ﻿namespace Bunnies
 {
+    using System;
+    using System.Text;
     using Contracts;
     using Enum;
     using Extensions;
-    using System;
-    using System.Text;
 
     [Serializable]
     public class Bunny
     {
-
         public int Age { get; set; }
-        public string Name { get; set; }
-        public FurType FurType { get; set; }
 
+        public string Name { get; set; }
+
+        public FurType FurType { get; set; }
 
         public void Introduce(IWriter writer)
         {

@@ -1,18 +1,15 @@
 ﻿namespace ConsoleApplication1.Models
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
 
     public class Event : IComparable
     {
         public DateTime date;
-        public String title;
-        public String location;
+        public string title;
+        public string location;
 
-        public Event(DateTime date, String title, String location)
+        public Event(DateTime date, string title, string location)
         {
             this.date = date;
 
@@ -50,14 +47,13 @@
         {
             StringBuilder toString = new StringBuilder();
 
-            toString.Append(date.ToString("yyyy-MM-ddTHH:mm:ss"));
+            toString.Append(this.date.ToString("yyyy-MM-ddTHH:mm:ss"));
 
+            toString.Append(" | " + this.title);
 
-            toString.Append(" | " + title);
-
-            if (location != null && location != "")
+            if (this.location != null && this.location != string.Empty)
             {
-                toString.Append(" | " + location);
+                toString.Append(" | " + this.location);
             }
 
             return toString.ToString();

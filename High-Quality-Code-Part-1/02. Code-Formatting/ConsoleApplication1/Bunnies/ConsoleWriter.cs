@@ -1,11 +1,7 @@
 ﻿namespace Bunnies
 {
-    using Contracts;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Contracts;
 
     public class ConsoleWriter : IWriter
     {
@@ -13,7 +9,9 @@
         {
             Console.Write(message);
         }
+
         public void WriteLine(string message)
+
         {
             Console.WriteLine(message);
         }

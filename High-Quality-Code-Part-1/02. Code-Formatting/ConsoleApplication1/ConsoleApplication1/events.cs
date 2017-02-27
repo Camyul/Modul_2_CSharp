@@ -1,36 +1,46 @@
-﻿    using ConsoleApplication1.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using Wintellect.PowerCollections;
-    
-    public class Program
-    {     
+﻿using System;
+using ConsoleApplication1.Models;
 
-        public static EventHolder events = new EventHolder();
+public class Program
+    {
+    public static EventHolder events = new EventHolder();
 
         static void Main(string[] args)
         {
             while (ExecuteNextCommand())
             {
-
             }
 
-            Console.WriteLine(output);
+        ////Console.WriteLine(output);
+        Console.WriteLine();
+    }
+
+    private static bool ExecuteNextCommand()
+    {
+        string command = Console.ReadLine();
+        if (command[0] == 'A')
+        {
+            AddEvent(command);
+            return true;
+        }
+        if (command[0] == 'D')
+        {
+            DeleteEvents(command);
+            return true;
         }
 
-        private static bool ExecuteNextCommand()
+        if (command[0] == 'L')
         {
-            string command = Console.ReadLine();
-            if (command[0] == 'A') { AddEvent(command); return true; }
-            if (command[0] == 'D') { DeleteEvents(command); return true; }
+            ListEvents(command);
+            return true;
+        }
+        if (command[0] == 'E')
 
-
-            if (command[0] == 'L') { ListEvents(command); return true; }
-            if (command[0] == 'E') { return false; }
+        {
             return false;
         }
+        return false;
+    }
 
         private static void ListEvents(string command)
         {
@@ -40,10 +50,8 @@
 
             string countString = command.Substring(pipeIndex + 1);
 
-
             int count = int.Parse(countString);
-            events.ListEvents(date,
-            count);
+            events.ListEvents(date, count);
         }
 
         private static void DeleteEvents(string command)
@@ -63,6 +71,7 @@
 
             events.AddEvent(date, title, location);
         }
+
         private static void GetParameters(string commandForExecution, string commandType, out DateTime dateAndTime, out string eventTitle, out string eventLocation)
         {
             dateAndTime = GetDate(commandForExecution, commandType);
@@ -72,7 +81,7 @@
             if (firstPipeIndex == lastPipeIndex)
             {
                 eventTitle = commandForExecution.Substring(firstPipeIndex + 1).Trim();
-                eventLocation = "";
+                eventLocation = string.Empty;
             }
             else
             {
@@ -89,4 +98,3 @@
             return date;
         }
     }
-}

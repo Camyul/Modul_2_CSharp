@@ -22,7 +22,7 @@ namespace IntergalacticTravel
 
         public void CollectProfits()
         {
-            foreach(var teleportStation in this.teleportStations)
+            foreach (var teleportStation in this.teleportStations)
             {
                 var profit = teleportStation.PayProfits(this);
                 this.Resources.Add(profit);

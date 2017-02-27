@@ -47,7 +47,7 @@ namespace IntergalacticTravel
             return payment;
         }
 
-        private void ChangeUnitLocation(IPath pathToTheTargetPlanet, IUnit unitToTeleport, ILocation targetLocation)
+        private void ChangeUnitLocation (IPath pathToTheTargetPlanet, IUnit unitToTeleport, ILocation targetLocation)
         {
             pathToTheTargetPlanet.TargetLocation.Planet.Units.Add(unitToTeleport);
             unitToTeleport.CurrentLocation.Planet.Units.Remove(unitToTeleport);

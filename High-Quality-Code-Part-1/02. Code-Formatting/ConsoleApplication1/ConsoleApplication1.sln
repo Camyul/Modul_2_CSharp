@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Formatting CSharp", "ConsoleApplication1\01. Formatting CSharp.csproj", "{64FE67C4-CFBE-4C34-A32B-17064FEC47EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bunnies", "Bunnies\Bunnies.csproj", "{25622CC0-67A9-4B99-8ABA-63AF24CD64FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64FE67C4-CFBE-4C34-A32B-17064FEC47EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64FE67C4-CFBE-4C34-A32B-17064FEC47EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64FE67C4-CFBE-4C34-A32B-17064FEC47EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64FE67C4-CFBE-4C34-A32B-17064FEC47EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25622CC0-67A9-4B99-8ABA-63AF24CD64FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25622CC0-67A9-4B99-8ABA-63AF24CD64FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25622CC0-67A9-4B99-8ABA-63AF24CD64FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25622CC0-67A9-4B99-8ABA-63AF24CD64FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

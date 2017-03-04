@@ -3,16 +3,16 @@ using ConsoleApplication1.Models;
 
 public class Program
     {
-    public static EventHolder events = new EventHolder();
+    private static EventHolder events = new EventHolder();
 
-        static void Main(string[] args)
+        internal static void Main(string[] args)
         {
-            while (ExecuteNextCommand())
+        while (ExecuteNextCommand())
             {
             }
 
         ////Console.WriteLine(output);
-        Console.WriteLine();
+        Console.WriteLine(events.ToString());
     }
 
     private static bool ExecuteNextCommand()
@@ -23,6 +23,7 @@ public class Program
             AddEvent(command);
             return true;
         }
+
         if (command[0] == 'D')
         {
             DeleteEvents(command);
@@ -34,11 +35,12 @@ public class Program
             ListEvents(command);
             return true;
         }
-        if (command[0] == 'E')
 
+        if (command[0] == 'E')
         {
             return false;
         }
+
         return false;
     }
 

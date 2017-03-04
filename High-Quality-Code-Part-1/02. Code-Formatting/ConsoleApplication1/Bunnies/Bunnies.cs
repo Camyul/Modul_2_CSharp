@@ -7,7 +7,7 @@
 
     public class Bunnies
     {
-        static void Main(string[] args)
+       internal static void Main(string[] args)
         {
             var bunnies = new List<Bunny>
             {

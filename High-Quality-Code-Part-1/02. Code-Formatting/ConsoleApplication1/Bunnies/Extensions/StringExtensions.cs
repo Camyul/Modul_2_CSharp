@@ -19,8 +19,8 @@
                 }
 
                 builder.Append(letter);
-
             }
+
             return builder.ToString().Trim();
         }
     }

@@ -5,9 +5,9 @@
 
     public class Event : IComparable
     {
-        public DateTime date;
-        public string title;
-        public string location;
+        private DateTime date;
+        private string title;
+        private string location;
 
         public Event(DateTime date, string title, string location)
         {

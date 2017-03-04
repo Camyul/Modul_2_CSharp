@@ -5,15 +5,41 @@
 
     public class EventHolder
     {
-        MultiDictionary<string, Event> byTitle = new MultiDictionary<string, Event>(true);
+       private MultiDictionary<string, Event> byTitle = new MultiDictionary<string, Event>(true);
 
-        OrderedBag<Event> byDate = new OrderedBag<Event>();
+       private OrderedBag<Event> byDate = new OrderedBag<Event>();
+
+        public MultiDictionary<string, Event> ByTitle
+        {
+            get
+            {
+                return this.byTitle;
+            }
+
+            set
+            {
+                this.byTitle = value;
+            }
+        }
+
+        public OrderedBag<Event> ByDate
+        {
+            get
+            {
+                return this.byDate;
+            }
+
+            set
+            {
+                this.byDate = value;
+            }
+        }
 
         public void AddEvent(DateTime date, string title, string location)
         {
             Event newEvent = new Event(date, title, location);
-            this.byTitle.Add(title.ToLower(), newEvent);
-            this.byDate.Add(newEvent);
+            this.ByTitle.Add(title.ToLower(), newEvent);
+            this.ByDate.Add(newEvent);
             Messages.EventAdded();
         }
 
@@ -24,17 +50,17 @@
             foreach (var eventToRemove in this.byTitle[title])
             {
                 removed++;
-                this.byDate.Remove(eventToRemove);
+                this.ByDate.Remove(eventToRemove);
             }
 
-            this.byTitle.Remove(title);
+            this.ByTitle.Remove(title);
             Messages.EventDeleted(removed);
         }
 
         public void ListEvents(DateTime date, int count)
         {
             OrderedBag<Event>.View
-                eventsToShow = this.byDate.RangeFrom(new Event(date, string.Empty, string.Empty), true);
+                eventsToShow = this.ByDate.RangeFrom(new Event(date, string.Empty, string.Empty), true);
 
             int showed = 0;
 
@@ -44,10 +70,12 @@
                 {
                     break;
                 }
+
                 Messages.PrintEvent(eventToShow);
 
                 showed++;
             }
+
             if (showed == 0)
             {
                 Messages.NoEventsFound();

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. class_123 in CSharp", "01. class_123 in CSharp\01. class_123 in CSharp.csproj", "{FBA3CDCF-B3C7-4CCF-AD91-62FC624F4C0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Make_Human in CSharp", "02. Make_Чуек in CSharp\02. Make_Human in CSharp.csproj", "{BDB2537A-8AD9-4905-9936-992AC79D024F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Click On The Button in JavaScript", "03.Click On The Button in JavaScript\03.Click On The Button in JavaScript.csproj", "{D5A97692-33DB-4C63-9C1C-4B08A7A67C2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBA3CDCF-B3C7-4CCF-AD91-62FC624F4C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA3CDCF-B3C7-4CCF-AD91-62FC624F4C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA3CDCF-B3C7-4CCF-AD91-62FC624F4C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA3CDCF-B3C7-4CCF-AD91-62FC624F4C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDB2537A-8AD9-4905-9936-992AC79D024F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDB2537A-8AD9-4905-9936-992AC79D024F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDB2537A-8AD9-4905-9936-992AC79D024F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDB2537A-8AD9-4905-9936-992AC79D024F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5A97692-33DB-4C63-9C1C-4B08A7A67C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A97692-33DB-4C63-9C1C-4B08A7A67C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A97692-33DB-4C63-9C1C-4B08A7A67C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A97692-33DB-4C63-9C1C-4B08A7A67C2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

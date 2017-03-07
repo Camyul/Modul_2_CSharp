@@ -9,7 +9,7 @@
     using System.Text.RegularExpressions;
 
     /// <summary>
-    /// For Extensions
+    ///Extensions of String Class
     /// </summary>
     public static class StringExtensions
     {
@@ -89,6 +89,7 @@
 
         /// <summary>
         /// Convert String to DateTime
+        /// </summary>
         /// <param name="input">String contain Date as string</param>
         /// <returns>DateTime</returns>
         public static DateTime ToDateTime(this string input)
@@ -145,6 +146,11 @@
             return input.Substring(startPosition, endPosition - startPosition);
         }
 
+        /// <summary>
+        /// Convert Cyrillic Letters string To Latin Letters String
+        /// </summary>
+        /// <param name="input">String with cyrillic letters</param>
+        /// <returns>String with Latin letters</returns>
         public static string ConvertCyrillicToLatinLetters(this string input)
         {
             var bulgarianLetters = new[]
@@ -167,6 +173,11 @@
             return input;
         }
 
+        /// <summary>
+        /// Convert Latin Letters string To Cyrillic Letters String
+        /// </summary>
+        /// <param name="input">String with Latin letters</param>
+        /// <returns>String with cyrillic letters</returns>
         public static string ConvertLatinToCyrillicKeyboard(this string input)
         {
             var latinLetters = new[]
@@ -191,23 +202,44 @@
             return input;
         }
 
+        /// <summary>
+        /// Validate Username
+        /// </summary>
+        /// <param name="input">Username as String</param>
+        /// <returns>Valid Username or Empty String</returns>
         public static string ToValidUsername(this string input)
         {
             input = input.ConvertCyrillicToLatinLetters();
             return Regex.Replace(input, @"[^a-zA-z0-9_\.]+", string.Empty);
         }
 
+        /// <summary>
+        /// Validate Filename
+        /// </summary>
+        /// <param name="input">Filename as String</param>
+        /// <returns>Valid Filename or Empty String</returns>
         public static string ToValidLatinFileName(this string input)
         {
             input = input.Replace(" ", "-").ConvertCyrillicToLatinLetters();
             return Regex.Replace(input, @"[^a-zA-z0-9_\.\-]+", string.Empty);
         }
 
+        /// <summary>
+        /// Get first simbols from string
+        /// </summary>
+        /// <param name="input">Text as String</param>
+        /// <param name="charsCount">Count of simbols who return</param>
+        /// <returns>String with length equal to count</returns>
         public static string GetFirstCharacters(this string input, int charsCount)
         {
             return input.Substring(0, Math.Min(input.Length, charsCount));
         }
 
+        /// <summary>
+        /// Get File extensions
+        /// </summary>
+        /// <param name="fileName">File name as string</param>
+        /// <returns>File extension or empty string</returns>
         public static string GetFileExtension(this string fileName)
         {
             if (string.IsNullOrWhiteSpace(fileName))
@@ -224,6 +256,11 @@
             return fileParts.Last().Trim().ToLower();
         }
 
+        /// <summary>
+        /// Convert File extensions to Content Type
+        /// </summary>
+        /// <param name="fileExtension">Extension of file as string</param>
+        /// <returns>Content Type as String</returns>
         public static string ToContentType(this string fileExtension)
         {
             var fileExtensionToContentType = new Dictionary<string, string>
@@ -248,6 +285,11 @@
             return "application/octet-stream";
         }
 
+        /// <summary>
+        /// Convert to Byte Array
+        /// </summary>
+        /// <param name="input">String</param>
+        /// <returns>Byte Array</returns>
         public static byte[] ToByteArray(this string input)
         {
             var bytesArray = new byte[input.Length * sizeof(char)];

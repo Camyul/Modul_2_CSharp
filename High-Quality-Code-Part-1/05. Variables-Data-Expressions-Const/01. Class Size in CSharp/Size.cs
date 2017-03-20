@@ -13,6 +13,15 @@ namespace Class_Size_in_CSharp
       
         public Size(double width, double height)
         {
+            if (width <= 0)
+            {
+                throw new ArgumentOutOfRangeException("Width cannot be negative or zero");
+            }
+            if (height <= 0)
+            {
+                throw new ArgumentOutOfRangeException("Hidht cannot be negative or zero");
+            }
+
             this.width = width;
             this.height = height;
         }

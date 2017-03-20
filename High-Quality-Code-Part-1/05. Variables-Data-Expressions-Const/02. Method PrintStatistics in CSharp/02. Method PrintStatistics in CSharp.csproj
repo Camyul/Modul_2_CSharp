@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{02EA0205-C9FB-4E29-95D3-AC5AE107C6FF}</ProjectGuid>
+    <ProjectGuid>{06235D25-E840-4D33-8E43-B6E185B1D7DE}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_01.Class_Size_in_CSharp</RootNamespace>
-    <AssemblyName>_01.Class_Size_in_CSharp</AssemblyName>
+    <RootNamespace>_02.Method_PrintStatistics_in_CSharp</RootNamespace>
+    <AssemblyName>_02.Method_PrintStatistics_in_CSharp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Size.cs" />
+    <Compile Include="Statistic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

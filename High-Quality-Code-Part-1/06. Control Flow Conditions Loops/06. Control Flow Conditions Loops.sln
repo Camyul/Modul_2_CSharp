@@ -5,7 +5,11 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Class Chef in CSharp", "01. Class Chef in CSharp\01. Class Chef in CSharp.csproj", "{B3F5352B-00B8-4F0A-A7D0-03B6CD359FB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Refactor the following if statements", "02. Refactor the following if statements\02. Refactor the following if statements.csproj", "{FD4CBC65-0A2F-4AC3-B232-C807689D07FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Refactor First if statements", "02. Refactor the following if statements\02. Refactor First if statements.csproj", "{FD4CBC65-0A2F-4AC3-B232-C807689D07FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Refactor Second if statements", "02. Refactor Second if statements\02. Refactor Second if statements.csproj", "{FD8FDA99-558E-481D-ABEA-95D2B3E67C79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Refactor the following loop", "03. Refactor the following loop\03. Refactor the following loop.csproj", "{30DA1757-CA2D-4648-9AFE-0AF680C9279F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{FD4CBC65-0A2F-4AC3-B232-C807689D07FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD4CBC65-0A2F-4AC3-B232-C807689D07FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD4CBC65-0A2F-4AC3-B232-C807689D07FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD8FDA99-558E-481D-ABEA-95D2B3E67C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD8FDA99-558E-481D-ABEA-95D2B3E67C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD8FDA99-558E-481D-ABEA-95D2B3E67C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD8FDA99-558E-481D-ABEA-95D2B3E67C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30DA1757-CA2D-4648-9AFE-0AF680C9279F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30DA1757-CA2D-4648-9AFE-0AF680C9279F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30DA1757-CA2D-4648-9AFE-0AF680C9279F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30DA1757-CA2D-4648-9AFE-0AF680C9279F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,12 @@ namespace Class_Chef_in_CSharp
 {
     public class Chef
     {
+        public static void Main()
+        {
+            Chef manchev = new Chef();
+            manchev.Cook();
+        }
+
         public void Cook()
         {
             Potato potato = GetPotato();

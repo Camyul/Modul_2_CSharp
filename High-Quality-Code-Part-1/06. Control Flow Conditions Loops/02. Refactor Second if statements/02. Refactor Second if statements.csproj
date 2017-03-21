@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FD4CBC65-0A2F-4AC3-B232-C807689D07FB}</ProjectGuid>
+    <ProjectGuid>{FD8FDA99-558E-481D-ABEA-95D2B3E67C79}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_02.Refactor_the_following_if_statements</RootNamespace>
-    <AssemblyName>_02.Refactor_the_following_if_statements</AssemblyName>
+    <RootNamespace>_02.Refactor_Second_if_statements</RootNamespace>
+    <AssemblyName>_02.Refactor_Second_if_statements</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Potato.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Coord.cs" />
+    <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

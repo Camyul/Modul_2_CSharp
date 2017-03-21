@@ -4,7 +4,7 @@
     {
         public Potato()
         {
-            this.HasBeenPeeled = true;
+            this.HasBeenPeeled = false;
             this.IsRotten = false;
         }
 

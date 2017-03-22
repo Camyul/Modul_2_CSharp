@@ -1,0 +1,8 @@
+Basically, in the Visual Studio menu select:
+
+Tools-> Nuget Package Manager -> Package Manager Console
+
+In the console that appears at the bottom of Visual Studio run this command:
+
+
+Install-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform

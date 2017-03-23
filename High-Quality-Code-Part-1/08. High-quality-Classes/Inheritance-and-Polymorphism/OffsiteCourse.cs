@@ -4,46 +4,40 @@ using System.Text;
 
 namespace InheritanceAndPolymorphism
 {
-    public class OffsiteCourse
+    public class OffsiteCourse : Course
     {
-        public string Name { get; set; }
-        public string TeacherName { get; set; }
-        public IList<string> Students { get; set; }
-        public string Town { get; set; }
+        private string town;
 
-        public OffsiteCourse(string name)
+        public OffsiteCourse(string courseName) : base(courseName)
         {
-            this.Name = name;
-            this.TeacherName = null;
-            this.Students = new List<string>();
-            this.Town = null;
+            this.Town = "Sofia";
         }
 
-        public OffsiteCourse(string courseName, string teacherName)
+        public OffsiteCourse(string courseName, string teacherName) : base(courseName, teacherName)
         {
-            this.Name = courseName;
-            this.TeacherName = teacherName;
-            this.Students = new List<string>();
-            this.Town = null;
+            this.Town = "Sofia";
         }
 
-        public OffsiteCourse(string courseName, string teacherName, IList<string> students)
+        public OffsiteCourse(string courseName, string teacherName, IList<string> students) : base(courseName, teacherName, students)
         {
-            this.Name = courseName;
-            this.TeacherName = teacherName;
-            this.Students = students;
-            this.Town = null;
+            this.Town = "Sofia";
         }
 
-        private string GetStudentsAsString()
+        public string Town
         {
-            if (this.Students == null || this.Students.Count == 0)
+            get
             {
-                return "{ }";
+                return this.town;
             }
-            else
+
+            set
             {
-                return "{ " + string.Join(", ", this.Students) + " }";
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException("Town cannot be null or Empty");
+                }
+
+                this.town = value;
             }
         }
 
@@ -57,6 +51,7 @@ namespace InheritanceAndPolymorphism
                 result.Append("; Teacher = ");
                 result.Append(this.TeacherName);
             }
+
             result.Append("; Students = ");
             result.Append(this.GetStudentsAsString());
             if (this.Town != null)
@@ -64,6 +59,7 @@ namespace InheritanceAndPolymorphism
                 result.Append("; Town = ");
                 result.Append(this.Town);
             }
+
             result.Append(" }");
             return result.ToString();
         }

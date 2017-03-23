@@ -4,46 +4,40 @@ using System.Text;
 
 namespace InheritanceAndPolymorphism
 {
-    public class LocalCourse
+    public class LocalCourse : Course
     {
-        public string Name { get; set; }
-        public string TeacherName { get; set; }
-        public IList<string> Students { get; set; }
-        public string Lab { get; set; }
+        private string lab;
 
-        public LocalCourse(string name)
+        public LocalCourse(string courseName) : base(courseName)
         {
-            this.Name = name;
-            this.TeacherName = null;
-            this.Students = new List<string>();
-            this.Lab = null;
+            this.Lab = "Ultimate";
         }
 
-        public LocalCourse(string courseName, string teacherName)
+        public LocalCourse(string courseName, string teacherName) : base(courseName, teacherName)
         {
-            this.Name = courseName;
-            this.TeacherName = teacherName;
-            this.Students = new List<string>();
-            this.Lab = null;
+            this.Lab = "Ultimate";
         }
 
-        public LocalCourse(string courseName, string teacherName, IList<string> students)
+        public LocalCourse(string courseName, string teacherName, IList<string> students) : base(courseName, teacherName, students)
         {
-            this.Name = courseName;
-            this.TeacherName = teacherName;
-            this.Students = students;
-            this.Lab = null;
+            this.Lab = "Ultimate";
         }
 
-        private string GetStudentsAsString()
+        public string Lab
         {
-            if (this.Students == null || this.Students.Count == 0)
+            get
             {
-                return "{ }";
+                return this.lab;
             }
-            else
+
+            set
             {
-                return "{ " + string.Join(", ", this.Students) + " }";
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException("Lab cannot be null or Empty");
+                }
+
+                this.lab = value;
             }
         }
 
@@ -57,6 +51,7 @@ namespace InheritanceAndPolymorphism
                 result.Append("; Teacher = ");
                 result.Append(this.TeacherName);
             }
+
             result.Append("; Students = ");
             result.Append(this.GetStudentsAsString());
             if (this.Lab != null)
@@ -64,6 +59,7 @@ namespace InheritanceAndPolymorphism
                 result.Append("; Lab = ");
                 result.Append(this.Lab);
             }
+
             result.Append(" }");
             return result.ToString();
         }

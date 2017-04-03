@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Diagnostics;
 
 internal class AssertionsHomework
@@ -9,30 +8,41 @@ internal class AssertionsHomework
         Debug.Assert(arr != null, "Arrary cannot be null");
         Debug.Assert(arr.Length > 0, "Arrary cannot be Empty");
 
-        for (int index = 0; index < arr.Length-1; index++)
+        for (int index = 0; index < arr.Length - 1; index++)
         {
             int minElementIndex = FindMinElementIndex(arr, index, arr.Length - 1);
             Swap(ref arr[index], ref arr[minElementIndex]);
         }
     }
-  
-    private static int FindMinElementIndex<T>(T[] arr, int startIndex, int endIndex) 
-        where T : IComparable<T>
-    {
-        Debug.Assert(arr != null, "Arrary cannot be null");
-        Debug.Assert(arr.Length > 0, "Arrary cannot be Empty");
-        Debug.Assert(startIndex >= 0 && startIndex < arr.Length, "Start index cannot be negative or biggest from arr.Length");
-        Debug.Assert(endIndex >= startIndex && endIndex < arr.Length, "End index cannot be smallest from startIndex or biggest from arr.Length");
 
-        int minElementIndex = startIndex;
-        for (int i = startIndex + 1; i <= endIndex; i++)
-        {
-            if (arr[i].CompareTo(arr[minElementIndex]) < 0)
-            {
-                minElementIndex = i;
-            }
-        }
-        return minElementIndex;
+    public static int BinarySearch<T>(T[] arr, T value) where T : IComparable<T>
+    {
+        return BinarySearch(arr, value, 0, arr.Length - 1);
+    }
+
+    internal static void Main()
+    {
+        int[] arr = new int[] { 3, -1, 15, 4, 17, 2, 33, 0 };
+        Console.WriteLine("arr = [{0}]", string.Join(", ", arr));
+        SelectionSort(arr);
+        Console.WriteLine("sorted = [{0}]", string.Join(", ", arr));
+
+        ////int[] arrayNull = null;
+
+        //// Test sorting null array
+        ////SelectionSort(arrayNull);
+
+        //// Test sorting empty array
+        ////SelectionSort(new int[0]);
+
+        //// Test sorting single element array
+        SelectionSort(new int[1]); 
+
+        Console.WriteLine(BinarySearch(arr, -1000));
+        Console.WriteLine(BinarySearch(arr, 0));
+        Console.WriteLine(BinarySearch(arr, 17));
+        Console.WriteLine(BinarySearch(arr, 10));
+        Console.WriteLine(BinarySearch(arr, 1000));
     }
 
     private static void Swap<T>(ref T x, ref T y)
@@ -45,12 +55,7 @@ internal class AssertionsHomework
         y = oldX;
     }
 
-    public static int BinarySearch<T>(T[] arr, T value) where T : IComparable<T>
-    {
-        return BinarySearch(arr, value, 0, arr.Length - 1);
-    }
-
-    private static int BinarySearch<T>(T[] arr, T value, int startIndex, int endIndex) 
+    private static int BinarySearch<T>(T[] arr, T value, int startIndex, int endIndex)
         where T : IComparable<T>
     {
         Debug.Assert(arr != null, "Arrary cannot be null");
@@ -66,12 +71,13 @@ internal class AssertionsHomework
             {
                 return midIndex;
             }
+
             if (arr[midIndex].CompareTo(value) < 0)
             {
                 // Search on the right half
                 startIndex = midIndex + 1;
             }
-            else 
+            else
             {
                 // Search on the right half
                 endIndex = midIndex - 1;
@@ -82,29 +88,23 @@ internal class AssertionsHomework
         return -1;
     }
 
-    static void Main()
+    private static int FindMinElementIndex<T>(T[] arr, int startIndex, int endIndex)
+       where T : IComparable<T>
     {
-        int[] arr = new int[] { 3, -1, 15, 4, 17, 2, 33, 0 };
-        Console.WriteLine("arr = [{0}]", string.Join(", ", arr));
-        SelectionSort(arr);
-        Console.WriteLine("sorted = [{0}]", string.Join(", ", arr));
+        Debug.Assert(arr != null, "Arrary cannot be null");
+        Debug.Assert(arr.Length > 0, "Arrary cannot be Empty");
+        Debug.Assert(startIndex >= 0 && startIndex < arr.Length, "Start index cannot be negative or biggest from arr.Length");
+        Debug.Assert(endIndex >= startIndex && endIndex < arr.Length, "End index cannot be smallest from startIndex or biggest from arr.Length");
 
+        int minElementIndex = startIndex;
+        for (int i = startIndex + 1; i <= endIndex; i++)
+        {
+            if (arr[i].CompareTo(arr[minElementIndex]) < 0)
+            {
+                minElementIndex = i;
+            }
+        }
 
-        //int[] arrayNull = null;
-
-        // Test sorting null array
-        //SelectionSort(arrayNull);
-
-        // Test sorting empty array
-        //SelectionSort(new int[0]);
-
-        // Test sorting single element array
-        SelectionSort(new int[1]); 
-
-        Console.WriteLine(BinarySearch(arr, -1000));
-        Console.WriteLine(BinarySearch(arr, 0));
-        Console.WriteLine(BinarySearch(arr, 17));
-        Console.WriteLine(BinarySearch(arr, 10));
-        Console.WriteLine(BinarySearch(arr, 1000));
+        return minElementIndex;
     }
 }

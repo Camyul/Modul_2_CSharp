@@ -1,26 +1,18 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Student
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public IList<Exam> Exams { get; set; }
-
     public Student(string firstName, string lastName, IList<Exam> exams = null)
     {
         if (firstName == null)
         {
-            //Console.WriteLine("Invalid first name!");
-            //Environment.Exit(0);
             throw new ArgumentNullException("Invalid first name!");
         }
 
         if (lastName == null)
         {
-            //    Console.WriteLine("Invalid first name!");
-            //    Environment.Exit(0);
             throw new ArgumentNullException("Invalid last name!");
         }
 
@@ -29,19 +21,15 @@ public class Student
         this.Exams = exams;
     }
 
+    public string FirstName { get; set; }
+
+    public string LastName { get; set; }
+
+    public IList<Exam> Exams { get; set; }
+
     public IList<ExamResult> CheckExams()
     {
-        if (this.Exams == null)
-        {
-            throw new ArgumentNullException("The student exams not loaded!");
-        }
-
-        if (this.Exams.Count == 0)
-        {
-            //Console.WriteLine("The student has no exams!");
-            //return null;
-            throw new ArgumentNullException("The student has no exams!");
-        }
+        this.ValidateExams();
 
         IList<ExamResult> results = new List<ExamResult>();
         for (int i = 0; i < this.Exams.Count; i++)
@@ -51,24 +39,13 @@ public class Student
 
         return results;
     }
-
+    
     public double CalcAverageExamResultInPercents()
     {
-        if (this.Exams == null)
-        {
-            // Cannot calculate average on missing exams
-            throw new ArgumentNullException("The student exams not loaded!");
-        }
-
-        if (this.Exams.Count == 0)
-        {
-            // No exams --> return -1;
-            //return -1;
-            throw new ArgumentNullException("The student has no exams!");
-        }
+        this.ValidateExams();
 
         double[] examScore = new double[this.Exams.Count];
-        IList<ExamResult> examResults = CheckExams();
+        IList<ExamResult> examResults = this.CheckExams();
         for (int i = 0; i < examResults.Count; i++)
         {
             examScore[i] =
@@ -77,5 +54,18 @@ public class Student
         }
 
         return examScore.Average();
+    }
+
+    private void ValidateExams()
+    {
+        if (this.Exams == null)
+        {
+            throw new ArgumentNullException("The student exams not loaded!");
+        }
+
+        if (this.Exams.Count == 0)
+        {
+            throw new ArgumentNullException("The student has no exams!");
+        }
     }
 }

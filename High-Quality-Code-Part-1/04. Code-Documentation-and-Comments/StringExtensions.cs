@@ -263,6 +263,9 @@
         /// <returns>Content Type as String</returns>
         public static string ToContentType(this string fileExtension)
         {
+            int ab = 5;
+            ab = 6;
+
             var fileExtensionToContentType = new Dictionary<string, string>
                                                  {
                                                      { "jpg", "image/jpeg" },

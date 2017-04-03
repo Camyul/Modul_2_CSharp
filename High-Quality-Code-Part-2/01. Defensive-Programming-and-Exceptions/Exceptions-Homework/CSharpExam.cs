@@ -8,7 +8,7 @@ public class CSharpExam : Exam
     {
         if (score < 0)
         {
-            throw new NullReferenceException();
+            throw new ArgumentOutOfRangeException("Score cannot be begative!");
         }
 
         this.Score = score;
@@ -16,9 +16,9 @@ public class CSharpExam : Exam
 
     public override ExamResult Check()
     {
-        if (Score < 0 || Score > 100)
+        if (Score < 0 || 100 < Score)
         {
-            throw new InvalidOperationException();
+            throw new ArgumentOutOfRangeException("Score must be between 0 and 100!");
         }
         else
         {

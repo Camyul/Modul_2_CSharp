@@ -11,19 +11,19 @@ public class ExamResult
     {
         if (grade < 0)
         {
-            throw new Exception();
+            throw new ArgumentOutOfRangeException("Grade cannot be negative");
         }
         if (minGrade < 0)
         {
-            throw new Exception();
+            throw new ArgumentOutOfRangeException("MinGrade cannot be negative");
         }
         if (maxGrade <= minGrade)
         {
-            throw new Exception();
+            throw new ArgumentOutOfRangeException("MinGrade cannot be Biggest or equal from MaxGrade");
         }
         if (comments == null || comments == "")
         {
-            throw new Exception();
+            throw new ArgumentNullException("Commentar cannot be null or Empty String");
         }
 
         this.Grade = grade;

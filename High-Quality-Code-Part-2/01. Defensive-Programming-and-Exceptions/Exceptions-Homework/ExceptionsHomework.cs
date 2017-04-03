@@ -18,7 +18,7 @@ class ExceptionsHomework
     {
         if (count > str.Length)
         {
-            return "Invalid count!";
+            throw new ArgumentOutOfRangeException("Invalid count!");
         }
 
         StringBuilder result = new StringBuilder();
@@ -57,7 +57,7 @@ class ExceptionsHomework
         Console.WriteLine(ExtractEnding("I love C#", 2));
         Console.WriteLine(ExtractEnding("Nakov", 4));
         Console.WriteLine(ExtractEnding("beer", 4));
-        Console.WriteLine(ExtractEnding("Hi", 100));
+        //Console.WriteLine(ExtractEnding("Hi", 100));
 
         try
         {

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
+using Compare_simple_Maths;
 
-namespace Compare_simple_Maths
+namespace Compare_advanced_Maths
 {
-    public static class PerfomanceTester
+    public static class AdvancedPerfomanceTester
     {
         private const int INTEGER = 1;
         private const long LONG = 1L;
@@ -11,23 +12,28 @@ namespace Compare_simple_Maths
         private const double DOUBLE = 1.0;
         private const decimal DECIMAL = 1.0M;
         private const int COUNT = 50000000;
-        private const int OPERAND = 1;
+        private const int OPERAND = 2;
 
-        public static void TimeMeasurer(DataType dataType, Operation operation)
+        public static void AdvancedTimeMeasurer(DataType dataType, Operation operation)
         {
             dynamic result;
 
             switch (dataType)
             {
-                case DataType.Int: result = INTEGER;
+                case DataType.Int:
+                    result = INTEGER;
                     break;
-                case DataType.Long: result = LONG;
+                case DataType.Long:
+                    result = LONG;
                     break;
-                case DataType.Float: result = FLOAT;
+                case DataType.Float:
+                    result = FLOAT;
                     break;
-                case DataType.Double: result = DOUBLE;
+                case DataType.Double:
+                    result = DOUBLE;
                     break;
-                case DataType.Decimal: result = DECIMAL;
+                case DataType.Decimal:
+                    result = DECIMAL;
                     break;
                 default:
                     throw new ArgumentException("Invalid data type");
@@ -38,17 +44,13 @@ namespace Compare_simple_Maths
 
             for (int i = 0; i < COUNT; i++)
             {
-                switch (operation)  
+                switch (operation)
                 {
-                    case Operation.Add: result += OPERAND;
+                    case Operation.SquareRoot: result = Math.Sqrt(OPERAND);
                         break;
-                    case Operation.Subtract: result -= OPERAND;
+                    case Operation.Sinus: result = Math.Sin(OPERAND);
                         break;
-                    case Operation.Increment: result++;
-                        break;
-                    case Operation.Multiply: result *= OPERAND;
-                        break;
-                    case Operation.Divide: result /= OPERAND;
+                    case Operation.NaturalLogarithm: result = Math.Log(OPERAND);
                         break;
                     default:
                         throw new ArgumentException("Invalid operation");
@@ -58,7 +60,7 @@ namespace Compare_simple_Maths
             var elapsedTime = sw.Elapsed;
             sw.Stop();
 
-            Console.WriteLine("Datatype: {0,-8} - Opearation: {1, -10} Time: {2}", dataType, operation, elapsedTime);
+            Console.WriteLine("Datatype: {0,-8} - Opearation: {1, -17} Time: {2}", dataType, operation, elapsedTime);
         }
     }
 }

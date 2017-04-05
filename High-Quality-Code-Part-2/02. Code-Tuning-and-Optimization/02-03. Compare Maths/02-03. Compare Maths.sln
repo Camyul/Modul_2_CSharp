@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Compare simple Maths", "02. Compare simple Maths\02. Compare simple Maths.csproj", "{830BC567-0149-4723-BC99-D9643A8F59B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Compare advanced Maths", "03. Compare advanced Maths\03. Compare advanced Maths.csproj", "{60C8A8CC-AF96-47CB-A970-2F1D8C66615A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{830BC567-0149-4723-BC99-D9643A8F59B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{830BC567-0149-4723-BC99-D9643A8F59B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{830BC567-0149-4723-BC99-D9643A8F59B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60C8A8CC-AF96-47CB-A970-2F1D8C66615A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60C8A8CC-AF96-47CB-A970-2F1D8C66615A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60C8A8CC-AF96-47CB-A970-2F1D8C66615A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60C8A8CC-AF96-47CB-A970-2F1D8C66615A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

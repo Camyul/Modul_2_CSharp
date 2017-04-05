@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Compare_simple_Maths
 {
-    class StartUp
+    internal class StartUp
     {
-        static void Main()
+        internal static void Main()
         {
             PerfomanceTester.TimeMeasurer(DataType.Int, Operation.Add);
             PerfomanceTester.TimeMeasurer(DataType.Long, Operation.Add);

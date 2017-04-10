@@ -2,7 +2,7 @@
 
 namespace Matrix
 {
-    public class WalkInMatrica
+    public class StartUp
     {
         internal static void Main()
         {

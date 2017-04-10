@@ -2,7 +2,7 @@
 
 namespace Matrix
 {
-    public class MovesInMatrix
+    public static class MovesInMatrix
     {
         public static void ChangeDirection(ref int dx, ref int dy)
         {

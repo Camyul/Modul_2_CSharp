@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using SchoolSystem.Contracts;
 using SchoolSystem.Enums;
+using SchoolSystem.Models;
+using SchoolSystem.Core;
 
 namespace SchoolSystem.Commands
 {

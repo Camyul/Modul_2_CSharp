@@ -1,4 +1,4 @@
-﻿namespace SchoolSystem
+﻿namespace SchoolSystem.Enum
 {
     public enum Grade
     {

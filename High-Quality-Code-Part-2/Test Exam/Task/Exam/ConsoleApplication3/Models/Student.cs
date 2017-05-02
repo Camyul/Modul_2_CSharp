@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using SchoolSystem.Models;
+using SchoolSystem.Enum;
 
-namespace SchoolSystem
+namespace SchoolSystem.Models
 {
     public class Student
     {
@@ -78,7 +79,7 @@ namespace SchoolSystem
         }
 
         public string ListMarks() {
-            var potatos = marks.Select(m => $"{m.subject} => {m.value}").ToList();
-            return string.Join("\n", potatos); }
+            var listMarks = marks.Select(m => $"{m.Subject} => {m.Valuation}").ToList();
+            return string.Join("\n", listMarks); }
     }
 }

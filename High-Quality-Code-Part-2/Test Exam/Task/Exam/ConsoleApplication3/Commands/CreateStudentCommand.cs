@@ -1,17 +1,11 @@
 ﻿using SchoolSystem.Contracts;
+using SchoolSystem.Core;
+using SchoolSystem.Enum;
+using SchoolSystem.Models;
 using System.Collections.Generic;
 
 namespace SchoolSystem.Commands
 {
-    internal class RemoveStudentCommand : ICommand
-    {
-        public string Execute(IList<string> paras)
-        {
-            Engine.students.Remove(int.Parse(paras[0]));
-            return $"Student with ID {int.Parse(paras[0])} was sucessfully removed.";
-        }
-    }
-
     internal class CreateStudentCommand : ICommand
     {
         public static int id = 0;

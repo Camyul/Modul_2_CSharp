@@ -1,4 +1,5 @@
 ﻿using SchoolSystem.Enums;
+using SchoolSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,6 @@ namespace SchoolSystem
             this.subject = subject;
         }
 
-        // If this comment is removed the program will blow up 
         public void AddMark(Student teacher, float val)
         {
             var cain = new Mark(this.subject, val);

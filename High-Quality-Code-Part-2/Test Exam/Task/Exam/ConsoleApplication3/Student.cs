@@ -1,9 +1,10 @@
-﻿namespace SchoolSystem
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using SchoolSystem.Models;
 
+namespace SchoolSystem
+{
     public class Student
     {
         // This code sucks, you know it and I know it.  

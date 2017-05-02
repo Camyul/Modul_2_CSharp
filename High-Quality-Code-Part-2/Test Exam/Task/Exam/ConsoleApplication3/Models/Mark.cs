@@ -1,9 +1,9 @@
 ﻿using SchoolSystem.Enums;
 using System;
 
-namespace SchoolSystem
+namespace SchoolSystem.Models
 { 
-    class Mark {
+   public class Mark {
         public Mark(Subject sbj, float va) {
             subject = sbj;
             value = va;

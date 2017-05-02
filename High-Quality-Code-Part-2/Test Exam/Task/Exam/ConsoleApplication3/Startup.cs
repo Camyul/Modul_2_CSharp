@@ -1,21 +1,16 @@
-﻿using System.Reflection;
-using System.Threading;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Threading;
-using SchoolSystem.Contracts;
+﻿using SchoolSystem.Contracts;
 using SchoolSystem.Core;
-
+using System;
+using System.Reflection;
 
 namespace SchoolSystem
 {
-    using System.Linq;
     using System.Collections.Generic;
     using System.Linq;
+
     public class Startup
     {
-        static void Main()
+        private static void Main()
         {
             // TODO: abstract at leest 2 mor provider like thiso ne
             var readedCommand = new ConsoleReaderProvider();
@@ -24,7 +19,8 @@ namespace SchoolSystem
             service.Execute(readedCommand);
         }
     }
-    class ConsoleReaderProvider
+
+    public class ConsoleReaderProvider
     {
         // TODO: make ConsoleReaderProvider implement IReader
         public string PadhanaLine()
@@ -32,7 +28,8 @@ namespace SchoolSystem
             return Console.ReadLine();
         }
     }
-    class Engine
+
+    internal class Engine
     {
         // TODO: change param to IReader instead ConsoleReaderProvider
         // mujhe tum par vishvaas hai
@@ -40,6 +37,7 @@ namespace SchoolSystem
         {
             read = readed;
         }
+
         public void BrumBrum()
         {
             while (true)
@@ -86,10 +84,12 @@ namespace SchoolSystem
             ////Thread.Sleep(350); //Not Needed
         }
 
-        internal static Dictionary<int, Teachers> 
-            teachers { get; set; } = new Dictionary<int, Teachers>();
+        internal static Dictionary<int, Teachers>
+            teachers
+        { get; set; } = new Dictionary<int, Teachers>();
 
-        internal static Dictionary<int, Student> 
-            students { get; set; } = new Dictionary<int, Student>();
+        internal static Dictionary<int, Student>
+            students
+        { get; set; } = new Dictionary<int, Student>();
     }
 }

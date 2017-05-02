@@ -1,13 +1,8 @@
 ﻿using SchoolSystem.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchoolSystem
 {
-    class Teachers
+    internal class Teachers
     {
         public string fName;
         public string lName;
@@ -20,7 +15,7 @@ namespace SchoolSystem
             this.subject = subject;
         }
 
-        // If this comment is removed the program will blow up 
+        // If this comment is removed the program will blow up
         public void AddMark(Student teacher, float val)
         {
             var cain = new Mark(this.subject, val);

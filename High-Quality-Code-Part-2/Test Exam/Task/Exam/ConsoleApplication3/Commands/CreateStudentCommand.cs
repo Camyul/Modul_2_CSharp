@@ -1,11 +1,9 @@
-﻿using SchoolSystem;
-using System;
+﻿using SchoolSystem.Contracts;
 using System.Collections.Generic;
-using SchoolSystem.Contracts;
 
 namespace SchoolSystem.Commands
 {
-    class RemoveStudentCommand : ICommand
+    internal class RemoveStudentCommand : ICommand
     {
         public string Execute(IList<string> paras)
         {
@@ -14,24 +12,26 @@ namespace SchoolSystem.Commands
         }
     }
 
-    class CreateStudentCommand : ICommand
+    internal class CreateStudentCommand : ICommand
     {
         public static int id = 0;
+
         public string Execute(IList<string> studentInfo)
         {
             Engine.students.Add(id, new Student(studentInfo[0], studentInfo[1], (Grade)int.Parse(studentInfo[2])));
-            return $"A new student with name {studentInfo[0]} {studentInfo[1]}, grade {(Grade) int.Parse(studentInfo[2])} and ID {id++} was created.";
+            return $"A new student with name {studentInfo[0]} {studentInfo[1]}, grade {(Grade)int.Parse(studentInfo[2])} and ID {id++} was created.";
         }
     }
 
-    class StudentListMarksCommand : ICommand
+    internal class StudentListMarksCommand : ICommand
     {
         public string Execute(IList<string> parameters)
-        {            
+        {
             return Engine.students[int.Parse(parameters[0])].ListMarks();
         }
     }
-    class TeacherAddMarkCommand : ICommand
+
+    internal class TeacherAddMarkCommand : ICommand
     {
         public string Execute(IList<string> prms)
         {

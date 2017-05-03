@@ -16,7 +16,19 @@ namespace SchoolSystem.Core
             this.read = readed;
         }
 
-        public void BrumBrum()
+        public IReader Read
+        {
+            get
+            {
+                return this.read;
+            }
+            set
+            {
+                this.read = value;
+            }
+        }
+
+        public void Start()
         {
             while (true)
             {

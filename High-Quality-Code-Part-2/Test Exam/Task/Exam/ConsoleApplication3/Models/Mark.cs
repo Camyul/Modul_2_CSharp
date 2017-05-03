@@ -1,9 +1,11 @@
 ﻿using System;
 using SchoolSystem.Enums;
+using SchoolSystem.Models.Contracts;
 
 namespace SchoolSystem.Models
 {
-   public class Mark {
+   public class Mark : IMarks
+    {
         private float valuation;
         private Subject subject;
 
@@ -21,10 +23,11 @@ namespace SchoolSystem.Models
 
             set
             {
-                if ((int)value < 2 && 6 < (int)value)
+                if (value < 2.0f || value > 6.0f)
                 {
                     throw new ArgumentOutOfRangeException("Valuation must be between 2 an 6");
                 }
+
                 this.valuation = value;
             }
         }

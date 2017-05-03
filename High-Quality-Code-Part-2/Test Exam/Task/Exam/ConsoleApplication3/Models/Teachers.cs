@@ -16,11 +16,11 @@ namespace SchoolSystem.Models
             this.subject = subject;
         }
 
-        public void AddMark(Student teacher, float val)
+        public void AddMark(Student student, float val)
         {
             var cain = new Mark(this.subject, val);
 
-            //teachers.mark.Add(cain);
+            student.Marks.Add(cain);
         }
     }
 }

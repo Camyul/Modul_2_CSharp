@@ -55,6 +55,8 @@
     <Compile Include="Contracts\IReader.cs" />
     <Compile Include="Core\ConsoleReaderProvider.cs" />
     <Compile Include="Core\Engine.cs" />
+    <Compile Include="Models\Contracts\IMarks.cs" />
+    <Compile Include="Models\Contracts\IStudents.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Enums\Grade.cs" />
     <Compile Include="Enums\Subject.cs" />

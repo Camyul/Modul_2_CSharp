@@ -21,7 +21,8 @@ namespace SchoolSystem.Commands
     {
         public string Execute(IList<string> parameters)
         {
-            return Engine.students[int.Parse(parameters[0])].ListMarks();
+            var result = Engine.students[int.Parse(parameters[0])].ListMarks();
+            return result;
         }
     }
 

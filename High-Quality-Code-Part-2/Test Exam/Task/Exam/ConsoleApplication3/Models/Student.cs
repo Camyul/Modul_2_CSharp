@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SchoolSystem.Models;
 using SchoolSystem.Enum;
+using System.Text.RegularExpressions;
 
 namespace SchoolSystem.Models
 {
@@ -20,7 +21,20 @@ namespace SchoolSystem.Models
             this.FirstName = fName;
             this.LastName = lName;
             this.Grades = grades;
-            this.marks = new List<Mark>();
+            this.Marks = new List<Mark>();
+        }
+
+        public List<Mark> Marks
+        {
+            get
+            {
+                return this.marks;
+            }
+
+            private set
+            {
+                this.marks = value;
+            }
         }
 
         public string FirstName
@@ -32,9 +46,13 @@ namespace SchoolSystem.Models
 
             set
             {
-                if (value.Length < 2 && 30 < value.Length)
+                if (!Regex.Match(value, @"^[a-zA-Z]+$").Success)
                 {
-                    // TODO check for only latin symbols
+                    throw new ArgumentOutOfRangeException($"FirstName {value} can contain only latin symbols");
+                }
+
+                if (value.Length < 2 && value.Length > 30)
+                {
                     throw new ArgumentOutOfRangeException("First Name must be between 2 an 30 symbols");
                 }
 
@@ -51,7 +69,12 @@ namespace SchoolSystem.Models
 
             set
             {
-                if (value.Length < 2 && 30 < value.Length)
+                if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))
+                {
+                    throw new ArgumentOutOfRangeException($"LastName {value} can contain only latin symbols");
+                }
+
+                if (value.Length < 2 && value.Length > 30)
                 {
                     throw new ArgumentOutOfRangeException("Last Name must be between 2 an 30 symbols");
                 }
@@ -69,7 +92,7 @@ namespace SchoolSystem.Models
 
             set
             {
-                if ((int)value < 1 && 12 < (int)value)
+                if ((int)value < 1 || (int)value > 12)
                 {
                     throw new ArgumentOutOfRangeException("Grades must be between 1 an 12");
                 }
@@ -78,8 +101,17 @@ namespace SchoolSystem.Models
             }
         }
 
-        public string ListMarks() {
-            var listMarks = marks.Select(m => $"{m.Subject} => {m.Valuation}").ToList();
-            return string.Join("\n", listMarks); }
+        public string ListMarks()
+        {
+            if (this.Marks.Count == 0)
+            {
+                return "This student has no marks.";
+            }
+
+            var listMarks = this.Marks
+                .Select(m => $"{m.Subject} => {m.Valuation}")
+                .ToList();
+            return string.Join("\n", listMarks);
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace SchoolSystem.Core
         public void Execute(IReader readedCommand)
         {
             var engine = new Engine(readedCommand);
-            engine.BrumBrum();
+            engine.Start();
         }
     }
 }

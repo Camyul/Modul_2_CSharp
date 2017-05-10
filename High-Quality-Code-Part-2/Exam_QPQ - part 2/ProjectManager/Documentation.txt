@@ -1,0 +1,12 @@
+﻿Bugs:
+
+#1 In class "ModelsFactory", method "CreateUser", username and email are exchanged places.
+#2 In class "CommandsFactory", method "CreateCommandFromString", missing in switch "createuser" case.
+#3 In class "FileLogger", method "error" is commented and in log.txt nothing was recorded.
+#4 In class "Task", method "ToString" missing line with Owner.
+#5 In class "Engine", method "Start" in catch "UserValidationException" don't call logger.
+
+Bottleneck:
+
+#1 In the class "CommandFactory", method "BuildCommand", 
+there was a "while" and "for" cycle that deliberately slowed down the performance

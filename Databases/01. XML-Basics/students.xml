@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<students xmlns="urn:students">
+  <name>Pesho</name>
+  <sex>Men</sex>
+  <birthDate>15.05.2017</birthDate>
+  <phone>0888999777</phone>
+  <email>pesho@peshov.bg</email>
+  <course>III</course>
+  <specialty>DataBases</specialty>
+  <facultyNumber>123456</facultyNumber>
+  <takenExam>
+    <exam>
+      <examName>HTML</examName>
+      <tutor>Gosho</tutor>
+      <score>33</score>
+    </exam>
+    <exam>
+      <examName>CSS</examName>
+      <tutor>Gosho</tutor>
+      <score>43</score>
+    </exam>
+    <exam>
+      <examName>Java Script</examName>
+      <tutor>Toni</tutor>
+      <score>18</score>
+    </exam>
+  </takenExam>
+</students>

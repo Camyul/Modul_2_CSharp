@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<albums xmlns="urn:albums">
+  <album>
+    <name>Listen</name>
+    <artist>David Guetta</artist>
+    <year>2014</year>
+    <producer>David Guetta</producer>
+    <list-songs>
+      <song>Dangerous</song>
+      <song>Hey Mama</song>
+      <song>What I Did For Love</song>
+    </list-songs>
+  </album>
+  <album>
+    <name>Nothing But The Beat 2.0</name>
+    <artist>David Guetta</artist>
+    <year>2012</year>
+    <producer>David Guetta</producer>
+    <list-songs>
+      <song>Turn Me On</song>
+      <song>Play Hard</song>
+      <song>Without You</song>
+    </list-songs>
+  </album>
+  <album>
+    <name>A Town Called Paradise</name>
+    <artist>DJ Tiesto</artist>
+    <year>2014</year>
+    <producer>DJ Tiesto</producer>
+    <list-songs>
+      <song>Red Lights</song>
+      <song>Footprints</song>
+      <song>Light Years Away</song>
+    </list-songs>
+  </album>
+</albums>

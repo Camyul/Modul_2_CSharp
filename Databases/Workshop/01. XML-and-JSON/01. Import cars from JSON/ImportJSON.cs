@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using WorkshopXMLToJSON.Contract;
 
 namespace WorkshopXMLToJSON
 {
@@ -10,6 +11,8 @@ namespace WorkshopXMLToJSON
     {
         static void Main()
         {
+            ICarService carService;
+
             var json = File.ReadAllText("../../data.number.json");
 
             var carsModelList = JsonConvert.DeserializeObject<List<CarJsonModel>>(json);
@@ -19,12 +22,17 @@ namespace WorkshopXMLToJSON
 
             foreach (var carJson in carsModelList)
             {
-                
-                 cars.Add(CarJsonModel.FromJsonModel(carJson));
+
+                cars.Add(CarJsonModel.FromJsonModel(carJson));
             }
             cars.ToArray();
 
             Console.WriteLine(string.Join("\n", cars));
+
+            ////Create cars.xml
+            carService = new StaxXmlCarsService("../../../cars.xml");
+
+            carService.Save(cars);
         }
     }
 }

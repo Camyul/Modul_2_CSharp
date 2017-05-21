@@ -7,7 +7,7 @@ using WorkshopXMLToJSON.Contract;
 
 namespace WorkshopXMLToJSON
 {
-    class ImportJSON
+    public class StartUp
     {
         static void Main()
         {

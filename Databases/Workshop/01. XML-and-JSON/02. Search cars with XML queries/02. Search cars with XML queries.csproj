@@ -49,6 +49,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\01. Import cars from JSON\01. Import cars from JSON.csproj">
+      <Project>{F5F9C029-E4E0-4DB2-ABE8-0E2CB31A20D9}</Project>
+      <Name>01. Import cars from JSON</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

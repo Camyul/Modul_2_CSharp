@@ -57,20 +57,106 @@ namespace WorkshopXMLToJSON
 
         private object ReadNextCar(XmlReader reader)
         {
-            const int carPropertiesToRead = 6;
-            var propertiesRead = 0;
+            const int carPropertiesToRead = 5;
+            var carPropertiesRead = 0;
+            const int dealerPropertiesToRead = 2;
+            var dealerPropertiesRead = 0;
             var isInCar = false;
+            var isInDealer = false;
 
-            var year = -1;
-            Transmission transmission;
+            int year = 0;
+            Transmission transmission = 0;
             var manufacturer = "";
             var model = "";
-            double price;
-            Dealer dealer;
+            double price = 0;
+            Dealer dealer = new Dealer("","");
+            var nameDealer = "";
+            var cityDealer = "";
 
-            return propertiesRead < carPropertiesToRead 
-                ? null 
-                : new Car(year, transmission, manufacturer, model, price, dealer)
+            while (reader.Read() && carPropertiesRead < carPropertiesToRead)
+            {
+
+                if (isInCar == false && reader.IsStartElement() && reader.Name == CarElementName)
+                {
+                    isInCar = true;
+                    reader.Read();
+                    carPropertiesRead++;
+                }
+
+                if (isInCar && reader.IsStartElement() && reader.Name == CarElementYear)
+                {
+                    carPropertiesRead++;
+                    reader.Read();
+                    year = int.Parse(reader.Value);
+
+                }
+
+                if (isInCar && reader.IsStartElement() && reader.Name == TransmissionElementName)
+                {
+                    carPropertiesRead++;
+                    reader.Read();
+                    transmission = (Transmission)Enum.Parse(typeof(Transmission), reader.Value);
+                    
+                }
+
+                if (isInCar && reader.IsStartElement() && reader.Name == ManufacturerElementName)
+                {
+                    carPropertiesRead++;
+                    reader.Read();
+                    manufacturer = reader.Value;
+                    
+                }
+
+                if (isInCar && reader.IsStartElement() && reader.Name == ModelElementName)
+                {
+                    carPropertiesRead++;
+                    reader.Read();
+                    model = reader.Value;
+                    
+                }
+
+                if (isInCar && reader.IsStartElement() && reader.Name == PriceElementName)
+                {
+                    carPropertiesRead++;
+                    reader.Read();
+                    price = double.Parse(reader.Value);
+                    
+                }
+
+                while (reader.Read() && dealerPropertiesRead < dealerPropertiesToRead)
+                {
+                    if (isInDealer == false && reader.IsStartElement() && reader.Name == DealerElementName)
+                    {
+                        isInDealer = true;
+                        reader.Read();
+                        nameDealer = reader.Value;
+                        dealerPropertiesRead++;
+                    }
+
+                    if (isInDealer && reader.IsStartElement() && reader.Name == NameDealerElementName)
+                    {
+                        dealerPropertiesRead++;
+                        reader.Read();
+                        nameDealer = reader.Value;
+
+                    }
+
+                    if (isInDealer && reader.IsStartElement() && reader.Name == CityDealerElementName)
+                    {
+                        dealerPropertiesRead++;
+                        reader.Read();
+                        cityDealer = reader.Value;
+                        
+                    }
+                }
+
+                dealer.Name = nameDealer;
+                dealer.City = cityDealer;
+            }
+
+            return carPropertiesRead < carPropertiesToRead
+                ? null
+                : new Car(year, transmission, manufacturer, model, price, dealer);
         }
 
 

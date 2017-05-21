@@ -53,7 +53,7 @@
     <Compile Include="StaxXmlCarsService.cs" />
     <Compile Include="Transmission.cs" />
     <Compile Include="Dealer.cs" />
-    <Compile Include="ImportJSON.cs" />
+    <Compile Include="StartUp.cs" />
     <Compile Include="Manufacturer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

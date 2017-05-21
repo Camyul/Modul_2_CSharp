@@ -44,10 +44,10 @@ namespace WorkshopXMLToJSON
 
             using(reader)
             {
-                var car = this.ReadNextCar(reader);
+                Car car = this.ReadNextCar(reader);
                 while (car != null)
                 {
-                    //cars.Add(car);
+                    cars.Add(car);
                     car = this.ReadNextCar(reader);
                 }
             }
@@ -55,9 +55,9 @@ namespace WorkshopXMLToJSON
             return cars;
         }
 
-        private object ReadNextCar(XmlReader reader)
+        private Car ReadNextCar(XmlReader reader)
         {
-            const int carPropertiesToRead = 5;
+            const int carPropertiesToRead = 6;
             var carPropertiesRead = 0;
             const int dealerPropertiesToRead = 2;
             var dealerPropertiesRead = 0;
@@ -75,7 +75,6 @@ namespace WorkshopXMLToJSON
 
             while (reader.Read() && carPropertiesRead < carPropertiesToRead)
             {
-
                 if (isInCar == false && reader.IsStartElement() && reader.Name == CarElementName)
                 {
                     isInCar = true;
@@ -122,36 +121,36 @@ namespace WorkshopXMLToJSON
                     price = double.Parse(reader.Value);
                     
                 }
-
-                while (reader.Read() && dealerPropertiesRead < dealerPropertiesToRead)
+                if (isInCar && reader.Name == DealerElementName)
                 {
-                    if (isInDealer == false && reader.IsStartElement() && reader.Name == DealerElementName)
-                    {
-                        isInDealer = true;
-                        reader.Read();
-                        nameDealer = reader.Value;
-                        dealerPropertiesRead++;
-                    }
+                    carPropertiesRead++;
 
-                    if (isInDealer && reader.IsStartElement() && reader.Name == NameDealerElementName)
+                    do
                     {
-                        dealerPropertiesRead++;
-                        reader.Read();
-                        nameDealer = reader.Value;
+                        if (isInDealer == false && reader.IsStartElement() && reader.Name == DealerElementName)
+                        {
+                            isInDealer = true;
+                            reader.Read();
+                        }
 
-                    }
+                        if (isInDealer && reader.IsStartElement() && reader.Name == NameDealerElementName)
+                        {
+                            dealerPropertiesRead++;
+                            reader.Read();
+                            nameDealer = reader.Value;
+                        }
 
-                    if (isInDealer && reader.IsStartElement() && reader.Name == CityDealerElementName)
-                    {
-                        dealerPropertiesRead++;
-                        reader.Read();
-                        cityDealer = reader.Value;
-                        
-                    }
+                        if (isInDealer && reader.IsStartElement() && reader.Name == CityDealerElementName)
+                        {
+                            dealerPropertiesRead++;
+                            reader.Read();
+                            cityDealer = reader.Value;
+
+                        }
+                    } while (reader.Read() && dealerPropertiesRead < dealerPropertiesToRead);
+                    dealer.Name = nameDealer;
+                    dealer.City = cityDealer;
                 }
-
-                dealer.Name = nameDealer;
-                dealer.City = cityDealer;
             }
 
             return carPropertiesRead < carPropertiesToRead

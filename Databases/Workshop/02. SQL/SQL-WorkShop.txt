@@ -89,28 +89,48 @@ ALTER TABLE Orders
 	FOREIGN KEY (CityID)
 	REFERENCES Cities(CityID)
 
-Now rename that column to be ShipCityId to be consistent (use stored procedure :) )
+--8.Now rename that column to be ShipCityId to be consistent (use stored procedure :) )
 
-Update ShipCityId in Orders table with values from Cities table (RESULT: 830 row(s) affected)
+EXEC sys.sp_rename 'Orders.ShipSityID', 'ShipCityID'
 
-Drop column ShipCity from Orders
+--9.Update ShipCityId in Orders table with values from Cities table (RESULT: 830 row(s) affected)
 
-Create table Countries with columns CountryId and Name (Unique)
+UPDATE Orders SET ShipCityID =
+(
+SELECT CityID FROM Cities
+	WHERE Cities.Name = Orders.ShipCity
+)
 
-Add CountryId to Cities with Foreign Key to CountryId in Countries
+--10.Drop column ShipCity from Orders
 
-Insert all the Countries from Employees, Customers, Suppliers and Orders (RESULT: 25 row(s) affected)
+ALTER TABLE Orders
+DROP COLUMN ShipCity
 
-Update CountryId in Cities table with values from Countries table
+--11.Create table Countries with columns CountryId and Name (Unique)
 
-Drop column City and ShipCity from Employees, Suppliers, Customers and Orders tables
+CREATE TABLE Countries
+(
+	CountryID INT IDENTITY PRIMARY KEY,
+	Name NVARCHAR(15) NOT NULL	
+)
 
-In Customers table there is an error
-	(
-	Msg 5074, Level 16, State 1, Line 91
-	The index 'City' is dependent on column 'City'.
-	Msg 4922, Level 16, State 9, Line 91
-	ALTER TABLE DROP COLUMN City failed because one or more objects access this column.
-	)
-Think about that error :)
-Drop column Country and ShipCountry from Employees, Customers, Suppliers and Orders tables
+ALTER TABLE Countries
+	ADD CONSTRAINT UC_Countries UNIQUE(Name)
+
+--12.Add CountryId to Cities with Foreign Key to CountryId in Countries
+
+--13.Insert all the Countries from Employees, Customers, Suppliers and Orders (RESULT: 25 row(s) affected)
+
+--14.Update CountryId in Cities table with values from Countries table
+
+--15.Drop column City and ShipCity from Employees, Suppliers, Customers and Orders tables
+	/*In Customers table there is an error
+		(
+		Msg 5074, Level 16, State 1, Line 91
+		The index 'City' is dependent on column 'City'.
+		Msg 4922, Level 16, State 9, Line 91
+		ALTER TABLE DROP COLUMN City failed because one or more objects access this column.
+		)
+	Think about that error :)*/
+	
+--16.Drop column Country and ShipCountry from Employees, Customers, Suppliers and Orders tables

@@ -1,0 +1,116 @@
+-- 1.Create table Cities with (CityId, Name)
+
+CREATE TABLE Cities
+(
+	CityID INT IDENTITY PRIMARY KEY,
+	Name NVARCHAR(15) NOT NULL	
+)
+
+--2.Insert into Cities all the Cities from Employees, Suppliers, Customers tables (RESULT: 95 row(s) affected)
+
+INSERT INTO Cities
+SELECT DISTINCT e.City FROM 
+(
+SELECT DISTINCT City FROM Employees
+UNION
+SELECT DISTINCT City FROM Suppliers
+UNION
+SELECT DISTINCT City FROM Customers
+) e
+
+--3.Add CityId into Employees, Suppliers, Customers tables which is Foreign Key to CityId in Cities
+
+ALTER TABLE Employees
+	ADD CityID INT
+
+ALTER TABLE Suppliers
+	ADD CityID INT
+
+ALTER TABLE Customers
+	ADD CityID INT
+	
+	ALTER TABLE Employees
+	ADD CONSTRAINT FK_Employees_Cities
+	FOREIGN KEY (CityID)
+	REFERENCES Cities(CityID)
+	
+	ALTER TABLE Suppliers
+	ADD CONSTRAINT FK_Suppliers_Cities
+	FOREIGN KEY (CityID)
+	REFERENCES Cities(CityID)
+	
+	ALTER TABLE Customers
+	ADD CONSTRAINT FK_Customers_Cities
+	FOREIGN KEY (CityID)
+	REFERENCES Cities(CityID)
+
+
+--4.Update Employees, Suppliers, Customers tables with CityId which is in the Cities table
+--Employees (RESULT: 9 row(s) affected)
+--Suppliers (RESULT: 29 row(s) affected)
+--Customers (RESULT: 91 row(s) affected)
+
+UPDATE Employees SET CityID =
+(
+	SELECT CityID FROM Cities
+	WHERE Cities.Name = Employees.City
+)
+UPDATE Suppliers SET CityID =
+(
+	SELECT CityID FROM Cities
+	WHERE Cities.Name = Suppliers.City
+)
+UPDATE Customers SET CityID =
+(
+	SELECT CityID FROM Cities
+	WHERE Cities.Name = Customers.City
+)
+
+	
+--5.Make the column Name in Cities Unique
+
+ALTER TABLE Cities
+	ADD CONSTRAINT UC_Users UNIQUE(Name)
+
+--6.Now after looking at the database again we found there are Cities (ShipCity) in the Orders table as well :D (always read before start coding). 
+--Insert those cities please. (RESULT: 1 row(s) affected)
+
+INSERT INTO Cities
+SELECT DISTINCT ShipCity FROM Orders
+	WHERE ShipCity NOT IN (SELECT Name FROM Cities)
+
+--7.Add CityId column in Orders with Foreign Key to CityId in Cities
+
+ALTER TABLE Orders
+	ADD CityID INT
+
+ALTER TABLE Orders
+	ADD CONSTRAINT FK_Orders_Cities
+	FOREIGN KEY (CityID)
+	REFERENCES Cities(CityID)
+
+Now rename that column to be ShipCityId to be consistent (use stored procedure :) )
+
+Update ShipCityId in Orders table with values from Cities table (RESULT: 830 row(s) affected)
+
+Drop column ShipCity from Orders
+
+Create table Countries with columns CountryId and Name (Unique)
+
+Add CountryId to Cities with Foreign Key to CountryId in Countries
+
+Insert all the Countries from Employees, Customers, Suppliers and Orders (RESULT: 25 row(s) affected)
+
+Update CountryId in Cities table with values from Countries table
+
+Drop column City and ShipCity from Employees, Suppliers, Customers and Orders tables
+
+In Customers table there is an error
+	(
+	Msg 5074, Level 16, State 1, Line 91
+	The index 'City' is dependent on column 'City'.
+	Msg 4922, Level 16, State 9, Line 91
+	ALTER TABLE DROP COLUMN City failed because one or more objects access this column.
+	)
+Think about that error :)
+Drop column Country and ShipCountry from Employees, Customers, Suppliers and Orders tables

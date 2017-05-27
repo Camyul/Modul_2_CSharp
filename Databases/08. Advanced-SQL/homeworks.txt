@@ -120,4 +120,37 @@ CREATE TABLE Users(
 	CONSTRAINT CHK_Pass_Lenght CHECK(LEN(Password) >= 5)
 	)
 	
-16.
+16.Write a SQL statement to create a view that displays the users from the Users table that have been in the system today.
+Test if the view works correctly.
+CREATE VIEW [Todey Loged Users] AS
+    SELECT Username  FROM Users
+		WHERE (DATEDIFF(DAY, LastLog, GETDATE())) < 1
+		
+CREATE VIEW [Todey Loged Users] AS
+	SELECT Username  FROM Users
+		WHERE DATEPART(dd,GETDATE()) = DATEPART(dd,LastLog)
+		
+17.Write a SQL statement to create a table Groups. Groups should have unique name (use unique constraint).
+Define primary key and identity column.
+USE TelerikAcademy
+CREATE TABLE Groups(
+	Id INT IDENTITY,
+	Name VARCHAR(20) NOT NULL,
+	CONSTRAINT PK_Groups PRIMARY KEY(Id),
+	CONSTRAINT UC_Groups UNIQUE(Id, Name)
+	)
+	
+18.Write a SQL statement to add a column GroupID to the table Users.
+Fill some data in this new column and as well in the `Groups table.
+Write a SQL statement to add a foreign key constraint between tables Users and Groups tables.
+USE TelerikAcademy
+ALTER TABLE Users 
+	ADD GroupID INT
+	
+USE TelerikAcademy
+ALTER TABLE Users 
+	ADD CONSTRAINT FK_Groups_Users
+		FOREIGN KEY (GroupID)
+		REFERENCES Groups(Id)
+		
+19.Write SQL statements to insert several records in the Users and Groups tables.

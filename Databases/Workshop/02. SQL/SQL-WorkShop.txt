@@ -119,9 +119,57 @@ ALTER TABLE Countries
 
 --12.Add CountryId to Cities with Foreign Key to CountryId in Countries
 
+ALTER TABLE Cities
+	ADD CountryId INT
+	
+ALTER TABLE Cities
+	ADD CONSTRAINT FK_Cities_Countries
+	FOREIGN KEY (CountryID)
+	REFERENCES Countries(CountryID)
+
 --13.Insert all the Countries from Employees, Customers, Suppliers and Orders (RESULT: 25 row(s) affected)
 
+INSERT INTO Countries
+SELECT DISTINCT e.Country FROM 
+(
+SELECT DISTINCT Country FROM Employees
+UNION
+SELECT DISTINCT Country FROM Suppliers
+UNION
+SELECT DISTINCT Country FROM Customers
+UNION
+SELECT DISTINCT ShipCountry FROM Orders
+) e
+
 --14.Update CountryId in Cities table with values from Countries table
+
+UPDATE Cities
+SET Cities.CountryId = CitiesInCountries.CountryId
+FROM (
+		(SELECT DISTINCT UnionCountries.CityId,
+						 UnionCountries.Country,
+						 Countries.CountryId 
+		FROM 
+			(SELECT Country, CityId 
+				FROM Employees 
+				WHERE CityId IS NOT NULL 
+			UNION 
+			SELECT Country, CityId 
+				FROM Suppliers 
+				WHERE CityId IS NOT NULL 
+			UNION 
+			SELECT Country, CityId 
+				FROM Customers 
+				WHERE CityId IS NOT NULL 
+			UNION 
+			SELECT ShipCountry, ShipCityId 
+				FROM Orders 
+				WHERE ShipCityId IS NOT NULL) UnionCountries 
+		JOIN Countries ON
+			Countries.Name = UnionCountries.Country)
+		) CitiesInCountries
+WHERE 
+    Cities.CityId = CitiesInCountries.CityId
 
 --15.Drop column City and ShipCity from Employees, Suppliers, Customers and Orders tables
 	/*In Customers table there is an error
@@ -133,4 +181,19 @@ ALTER TABLE Countries
 		)
 	Think about that error :)*/
 	
+	ALTER TABLE Customers
+DROP COLUMN City
+	
 --16.Drop column Country and ShipCountry from Employees, Customers, Suppliers and Orders tables
+
+ALTER TABLE Employees
+DROP COLUMN Country
+
+ALTER TABLE Customers
+DROP COLUMN Country
+
+ALTER TABLE Suppliers
+DROP COLUMN Country
+
+ALTER TABLE Orders
+DROP COLUMN ShipCountry

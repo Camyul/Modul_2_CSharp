@@ -52,4 +52,29 @@ GO
 
 EXEC usp_SelectFullNameOfPersons
 
---02.
+--02.Create a stored procedure that accepts a number as a parameter and returns all persons who have more money in their accounts than the supplied number.
+
+CREATE PROC usp_HaveMoreMoney (@money MONEY = 0)
+	AS
+	SELECT * FROM Accounts a
+	WHERE a.Balance > @money
+	GO
+
+	EXEC usp_HaveMoreMoney 2222
+	
+--03.Create a function that accepts as parameters – sum, yearly interest rate and number of months.
+--It should calculate and return the new sum.
+--Write a SELECT to test whether the function works as expected.
+
+CREATE FUNCTION ufn_CalculateRate(@sum MONEY, @rate DECIMAL, @mounts int)
+	RETURNS MONEY
+
+	AS
+	BEGIN
+	DECLARE @ratedSum MONEY = @sum + ((@rate / 100) *@sum * @mounts)
+	RETURN @ratedSum
+	END
+	
+DECLARE @result MONEY
+EXEC @result =  dbo.ufn_CalculateRate 100, 11.5, 1
+SELECT @result

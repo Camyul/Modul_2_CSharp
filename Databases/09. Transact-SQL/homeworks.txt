@@ -1,0 +1,55 @@
+--01.Create a database with two tables: Persons(Id(PK), FirstName, LastName, SSN) and Accounts(Id(PK), PersonId(FK), Balance).
+--Insert few records for testing.
+--Write a stored procedure that selects the full names of all persons.
+
+CREATE DATABASE BankSystem
+
+CREATE TABLE Persons
+(
+	[Id] INT IDENTITY,
+	[FirstName] NVARCHAR(20),
+	[LastName] NVARCHAR(20),
+	[SSN] CHAR(10),
+	CONSTRAINT PK_Persons PRIMARY KEY(Id)
+)
+GO
+
+INSERT INTO Persons([FirstName], [LastName], [SSN])
+VALUES
+	('Pesho','Peshev', 'UBBSBGSF01'),
+	('Gosho','Goshev', 'UBBSBGSF02'),
+	('Toni','Nedev', 'UBBSBGSF03'),
+	('Niko','Bonev', 'UBBSBGSF04')
+
+SELECT * FROM Persons p
+
+GO
+
+CREATE TABLE Accounts
+(
+	[Id] INT IDENTITY,
+	[PersonId] INT NOT NULL,
+	[Balance] MONEY,
+	CONSTRAINT PK_Accounts PRIMARY KEY(Id),
+	CONSTRAINT FK_Accounts FOREIGN KEY(PersonId)
+	REFERENCES Persons(Id)
+)
+GO
+
+INSERT INTO Accounts([PersonId], [Balance])
+VALUES
+	(3,1222),
+	(2,2115 ),
+	(4,7676),
+	(1,5454.23)
+
+SELECT * FROM Accounts
+
+CREATE PROC dbo.usp_SelectFullNameOfPersons
+AS
+	SELECT FirstName + ' ' + LastName FROM Persons
+GO
+
+EXEC usp_SelectFullNameOfPersons
+
+--02.

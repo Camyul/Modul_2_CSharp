@@ -1,0 +1,118 @@
+--01.List all superheroes in Earth
+
+SELECT s.Id [Id], s.Name [Name] FROM Superheroes s
+	JOIN PlanetSuperheroes ps
+	ON s.Id = ps.Superhero_Id
+	JOIN Planets p
+	ON ps.Planet_Id = p.Id
+	WHERE p.Name = 'Earth'
+	
+--02.List all superheroes with their powers and powerTypes
+
+SELECT DISTINCT s.Name [Superhero], pow.Name + ' (' + pt.Name + ')' [Power] FROM Superheroes s
+	JOIN PlanetSuperheroes pls
+	ON s.Id = pls.Superhero_Id
+	JOIN Planets p
+	ON pls.Planet_Id = p.Id
+	JOIN PowerSuperheroes pws
+	ON s.Id = pws.Superhero_Id
+	JOIN Powers pow
+	ON pws.Power_Id = pow.Id
+	JOIN PowerTypes pt
+	ON pow.PowerTypeId = pt.Id
+
+	
+--03.List the top 5 planets, sorted by count of superheroes with alignment 'Good', then by Planet Name
+
+SELECT TOP 5 p.Name AS Name, 
+COUNT(*) AS Protectors 
+FROM PlanetSuperheroes ps
+JOIN Planets p
+ON p.Id = ps.Planet_Id
+JOIN Alignments a
+ON p.Id = a.Id
+
+GROUP BY p.Name
+ORDER BY Protectors DESC, p.Name
+
+--04.Create a stored procedure to edit superheroes Bio, by provided Superhero's Id and the new bio
+
+CREATE PROC usp_UpdateSuperheroBio(@id INT, @bio ntext)
+AS
+  UPDATE Superheroes
+  SET Bio = @bio
+  WHERE Id = @id
+  
+GO
+
+--05.Create a stored prodecure, that gives full information about a superhero, by provided Superhero's Id
+
+--Name it usp_GetSuperheroInfo
+
+CREATE PROC usp_GetSuperheroInfo(@id INT = 1)
+AS
+SELECT s.Name [Superhero], s.SecretIdentity, s.Bio, a.Name, p.Name, pt.Name  FROM Superheroes s
+	JOIN PlanetSuperheroes pls
+	ON s.Id = pls.Superhero_Id
+	CROSS JOIN Planets p
+	--ON pls.Planet_Id = p.Id
+	JOIN PowerSuperheroes pws
+	ON s.Id = pws.Superhero_Id
+	JOIN Powers pow
+	ON pws.Power_Id = pow.Id
+	JOIN PowerTypes pt
+	ON pow.PowerTypeId = pt.Id
+	JOIN Alignments a
+	ON s.Alignment_Id = a.Id
+WHERE s.Id = @id
+GO
+
+--06.Create a stored procedure that prints the number of heroes with Good, Evil and Neutral alignment for each Planet
+--Name it usp_GetPlanetsWithHeroesCount
+
+
+
+--07.Create a stored procedure for creating a Superhero, with provided name, secret identity, bio, alignment, a planet and 3 powers (with their types)
+--Powers, power types, planet and alignement should be reused, if they are already in the database
+CREATE PROC usp_CreatePower(@powerName NVARCHAR(40), @powerType int = 3)
+AS
+INSERT INTO Powers([Name], [PowerTypeID])
+
+VALUES (@powerName, @powerType)
+
+SELECT * FROM Powers p
+GO
+
+
+CREATE PROC usp_CreateSuperHero(@name nvarchar(40), @secertIdentity nvarchar(40), @alignm INT, @bio ntext, @planet nvarchar(40),
+@powerName1 NVARCHAR(40), @powerType1 int = 1, @powerName2 NVARCHAR(40), @powerType2 int = 1, @powerName3 NVARCHAR(40), @powerType3 int = 1 )
+AS
+
+INSERT INTO Superheroes([Name], [SecretIdentity], [Alignment_Id], [Bio] )
+VALUES
+	(@name, @secertIdentity, @alignm, @bio)
+
+INSERT INTO Planets([Name])
+
+VALUES (@planet)
+
+EXEC usp_CreatePower @powerName1, @powerType1
+EXEC usp_CreatePower @powerName2, @powerType2
+EXEC usp_CreatePower @powerName3, @powerType3
+
+
+GO
+
+
+--08.Create a stored procedure that prints the number of powers by alignment of their superheroes
+--Name it usp_PowersUsageByAlignment
+
+CREATE PROC usp_PowersUsageByAlignment
+AS
+SELECT a.Name AS Alignment, COUNT(s.Alignment_Id) AS [Powers Count] FROM Alignments a
+JOIN Superheroes s
+ON a.Id = s.Alignment_Id
+GROUP BY a.Name
+GO
+
+

@@ -4,6 +4,7 @@ using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using SchoolSystem.Cli.Configuration;
 using SchoolSystem.Framework.Core;
+using SchoolSystem.Framework.Core.Commands;
 using SchoolSystem.Framework.Core.Commands.Contracts;
 using SchoolSystem.Framework.Core.Contracts;
 using SchoolSystem.Framework.Core.Providers;
@@ -32,6 +33,10 @@ namespace SchoolSystem.Cli
             Kernel.Bind<IReader>().To<ConsoleReaderProvider>();
             Kernel.Bind<IWriter>().To<ConsoleWriterProvider>();
             Kernel.Bind<IParser>().To<CommandParserProvider>();
+            //Kernel.Bind<IStudent>().To<Student>();
+
+            Kernel.Bind<CreateStudentCommand>().ToSelf().InSingletonScope();
+            Kernel.Bind<CreateTeacherCommand>().ToSelf().InSingletonScope();
 
             Kernel.Bind<ICommandFactory>().ToFactory().InSingletonScope();
             Kernel.Bind<IStudentFactory>().ToFactory().InSingletonScope();

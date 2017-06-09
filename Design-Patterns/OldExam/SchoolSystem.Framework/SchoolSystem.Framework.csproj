@@ -40,9 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Commands\Contracts\IAddTeacher.cs" />
     <Compile Include="Core\Commands\Contracts\ICommand.cs" />
+    <Compile Include="Core\Commands\Contracts\IMarkFactory.cs" />
+    <Compile Include="Core\Commands\Contracts\IStudentFactory.cs" />
+    <Compile Include="Core\Commands\Contracts\ITeacherFactory.cs" />
     <Compile Include="Core\Commands\CreateStudentCommand.cs" />
     <Compile Include="Core\Commands\CreateTeacherCommand.cs" />
+    <Compile Include="Core\Commands\Contracts\IAddStudent.cs" />
     <Compile Include="Core\Commands\RemoveStudentCommand.cs" />
     <Compile Include="Core\Commands\RemoveTeacherCommand.cs" />
     <Compile Include="Core\Commands\StudentListMarksCommand.cs" />

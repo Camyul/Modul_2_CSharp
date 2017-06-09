@@ -27,6 +27,8 @@ namespace SchoolSystem.Cli
             Kernel.Bind<IWriter>().To<ConsoleWriterProvider>();
             Kernel.Bind<IParser>().To<CommandParserProvider>();
 
+
+
             IConfigurationProvider configurationProvider = Kernel.Get<IConfigurationProvider>();
             if (configurationProvider.IsTestEnvironment)
             {

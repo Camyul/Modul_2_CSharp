@@ -17,12 +17,16 @@
 
         public IActionResult LivePage(string param)
         {
-            return new ContentActionResultWithoutCaching(this.Request, "Live page with no caching");
+            return new ActionResultWithNoCachingDecorator(
+                        new ContentActionResult(this.Request, "Live page with no caching"));
         }
 
         public IActionResult LivePageForAjax(string param)
         {
-            return new ContentActionResultWithCorsWithoutCaching(this.Request, "Live page with no caching and CORS", "*");
+            return new ActionResultWithCorsDecorator(
+                "*",
+                new ActionResultWithNoCachingDecorator(
+                    new ContentActionResult(this.Request, "Live page with no caching and CORS")));
         }
 
         public IActionResult Forum(string param)

@@ -4,15 +4,15 @@
     using System.IO;
     using System.Net;
 
-    public class StaticFileHandler
+    public class StaticFileHandler : Handler
     {
-        public bool CanHandle(IHttpRequest request)
+        protected override bool CanHandle(IHttpRequest request)
         {
             return request.Uri.LastIndexOf(".", StringComparison.Ordinal)
                    > request.Uri.LastIndexOf("/", StringComparison.Ordinal);
         }
 
-        public HttpResponse Handle(IHttpRequest request)
+        protected override HttpResponse Handle(IHttpRequest request)
         {
             var filePath = Environment.CurrentDirectory + "/" + request.Uri;
             if (!File.Exists(filePath))

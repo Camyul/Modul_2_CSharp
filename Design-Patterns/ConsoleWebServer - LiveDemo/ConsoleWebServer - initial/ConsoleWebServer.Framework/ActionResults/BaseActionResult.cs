@@ -1,13 +1,13 @@
 ﻿namespace ConsoleWebServer.Framework.ActionResults
 {
+    using System;
     using System.Collections.Generic;
     using System.Net;
 
     public abstract class BaseActionResult : IActionResult
     {
-        protected BaseActionResult(IHttpRequest request, object model)
+        protected BaseActionResult(IHttpRequest request)
         {
-            this.Model = model;
             this.Request = request;
             this.ResponseHeaders = new List<KeyValuePair<string, string>>();
         }
@@ -16,11 +16,9 @@
 
         private IHttpRequest Request { get; set; }
 
-        private object Model { get; set; }
-
         public HttpResponse GetResponse()
         {
-            var response = new HttpResponse(this.Request.ProtocolVersion, this.GetStatusCode(), this.Model.ToString(), this.GetContentType());
+            var response = new HttpResponse(this.Request.ProtocolVersion, this.GetStatusCode(), this.GetContent(), this.GetContentType());
             foreach (var responseHeader in this.ResponseHeaders)
             {
                 response.AddHeader(responseHeader.Key, responseHeader.Value);
@@ -32,6 +30,11 @@
         protected virtual HttpStatusCode GetStatusCode()
         {
             return HttpStatusCode.OK;
+        }
+
+        protected virtual string GetContent()
+        {
+            return string.Empty;
         }
 
         protected virtual string GetContentType()

@@ -6,7 +6,7 @@ namespace ConsoleWebServer.Framework.ActionResults
     public class RedirectActionResult : BaseActionResult
     {
         public RedirectActionResult(IHttpRequest request, string location)
-            : base(request, location)
+           : base(request)
         {
             this.ResponseHeaders.Add(new KeyValuePair<string, string>("Location", location));
         }

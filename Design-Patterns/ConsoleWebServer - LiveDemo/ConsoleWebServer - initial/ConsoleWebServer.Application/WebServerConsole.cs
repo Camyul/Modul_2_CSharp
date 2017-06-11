@@ -1,6 +1,7 @@
 ﻿namespace ConsoleWebServer.Application
 {
     using ConsoleWebServer.Framework;
+    using Framework.Handlers;
     using System;
     using System.Text;
 
@@ -8,7 +9,8 @@
     {
         public void Start()
         {
-            var responseProvider = new ResponseProvider();
+            var handlerFactory = new HandlerFactory();
+            var responseProvider = new ResponseProvider(handlerFactory);
             var requestBuilder = new StringBuilder();
             string inputLine;
             while ((inputLine = Console.ReadLine()) != null)

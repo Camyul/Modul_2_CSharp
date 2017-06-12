@@ -36,6 +36,7 @@ namespace ConsoleWebServer.Application
 
         public override void Load()
         {
+            //using Ninject.Extensions.Conventions  за автоматично биндване
             Kernel.Bind(x =>
             {
                 x.FromAssembliesInPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location))
@@ -62,6 +63,10 @@ namespace ConsoleWebServer.Application
 
                 return headHandler;
             }).WhenInjectedInto<ResponseProvider>();
+
+            //using Ninject.Extensions.Factory;
+            //Имената на параметрите в интерфейса, по който се крийтва инстанция, трябва да са еднакви с имената на параметрите
+            //в конструктора на инстанцирания клас
 
             Bind<IHttResponseFactory>().ToFactory().InSingletonScope();
             Bind<IHttpRequestFactory>().ToFactory().InSingletonScope();

@@ -20,16 +20,16 @@ namespace Removes_all_negative_numbers
             linkedList. AddBefore(element , 8);
             linkedList. AddBefore(element , -58);
             linkedList. AddBefore(element, -68);
-            string.Join(", ", linkedList);
-            //foreach (var node in linkedList)
-            //{
-            //    if (node < 0)
-            //    {
-            //        linkedList.Remove(node);
-            //    }
-            //}
 
             string.Join(", ", linkedList);
+
+            List<int> positiveNumbers = new List<int>();
+
+            positiveNumbers = linkedList
+                                .Where(node => node > 0).ToList();
+
+            Console.WriteLine(string.Join(", ", linkedList));
+            Console.WriteLine(string.Join(", ", positiveNumbers));
 
         }
     }

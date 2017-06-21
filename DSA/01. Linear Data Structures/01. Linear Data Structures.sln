@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Longest subsequence", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Removes all negative numbers", "05. Removes all negative numbers\05. Removes all negative numbers.csproj", "{F77259FB-1293-4843-AC5B-90EFD8469E82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. Removes occur odd number of times", "06. Removes occur odd number of times\06. Removes occur odd number of times.csproj", "{EF5CFE8C-85B8-4277-A2A6-EECF39A7202E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. How many times each of them occurs", "07. How many times each of them occurs\07. How many times each of them occurs.csproj", "{9F0B6172-63D1-4132-B4B2-1ED75964A36B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{F77259FB-1293-4843-AC5B-90EFD8469E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F77259FB-1293-4843-AC5B-90EFD8469E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F77259FB-1293-4843-AC5B-90EFD8469E82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF5CFE8C-85B8-4277-A2A6-EECF39A7202E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF5CFE8C-85B8-4277-A2A6-EECF39A7202E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF5CFE8C-85B8-4277-A2A6-EECF39A7202E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF5CFE8C-85B8-4277-A2A6-EECF39A7202E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F0B6172-63D1-4132-B4B2-1ED75964A36B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0B6172-63D1-4132-B4B2-1ED75964A36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0B6172-63D1-4132-B4B2-1ED75964A36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0B6172-63D1-4132-B4B2-1ED75964A36B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

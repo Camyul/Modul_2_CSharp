@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. reads N integers", "rea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Sequence of integers", "03. Sequence of integers\03. Sequence of integers.csproj", "{4A0B2E1A-5121-4FA2-8EA2-A8FA313A9B2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Longest subsequence", "04. Longest subsequence\04. Longest subsequence.csproj", "{B7C0AECF-DE8E-4BC8-B254-111223DECA2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4A0B2E1A-5121-4FA2-8EA2-A8FA313A9B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A0B2E1A-5121-4FA2-8EA2-A8FA313A9B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A0B2E1A-5121-4FA2-8EA2-A8FA313A9B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7C0AECF-DE8E-4BC8-B254-111223DECA2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C0AECF-DE8E-4BC8-B254-111223DECA2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C0AECF-DE8E-4BC8-B254-111223DECA2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C0AECF-DE8E-4BC8-B254-111223DECA2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08. FindArrayMajorant", "08
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. TopFiftySequenceMembers", "09. TopFiftySequenceMembers\09. TopFiftySequenceMembers.csproj", "{3C06CA46-044B-4ED2-BEA5-81763B1620F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12. ResizableStack", "12. ResizableStack\12. ResizableStack.csproj", "{5CE48FF7-4478-4221-AA2E-B5C77EEA5073}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{3C06CA46-044B-4ED2-BEA5-81763B1620F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C06CA46-044B-4ED2-BEA5-81763B1620F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C06CA46-044B-4ED2-BEA5-81763B1620F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CE48FF7-4478-4221-AA2E-B5C77EEA5073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CE48FF7-4478-4221-AA2E-B5C77EEA5073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CE48FF7-4478-4221-AA2E-B5C77EEA5073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CE48FF7-4478-4221-AA2E-B5C77EEA5073}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

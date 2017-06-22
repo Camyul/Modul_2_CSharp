@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. TopFiftySequenceMembers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12. ResizableStack", "12. ResizableStack\12. ResizableStack.csproj", "{5CE48FF7-4478-4221-AA2E-B5C77EEA5073}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. Implement LinkedList", "11. Implement LinkedList\11. Implement LinkedList.csproj", "{8A233F97-D277-42FC-AAE0-4D5B99A8E170}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{5CE48FF7-4478-4221-AA2E-B5C77EEA5073}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CE48FF7-4478-4221-AA2E-B5C77EEA5073}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CE48FF7-4478-4221-AA2E-B5C77EEA5073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A233F97-D277-42FC-AAE0-4D5B99A8E170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A233F97-D277-42FC-AAE0-4D5B99A8E170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A233F97-D277-42FC-AAE0-4D5B99A8E170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A233F97-D277-42FC-AAE0-4D5B99A8E170}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

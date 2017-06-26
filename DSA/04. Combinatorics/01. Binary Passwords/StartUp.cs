@@ -11,33 +11,19 @@ namespace _01.Binary_Passwords
         static void Main()
         {
             string pass = Console.ReadLine();
-            List<int> groups = new List<int>();
-            int count = 1;
 
-            for (int i = 0; i < pass.Length - 1; i++)
+            int count = 0;
+
+            for (int i = 0; i < pass.Length; i++)
             {
                 if (pass[i] == '*')
                 {
-                    if (pass[i] == '*' && pass[i + 1] == '*')
-                    {
                         count++;
-                    }
-                    else
-                    {
-                        groups.Add(count);
-                        count = 1;
-                    }
+                    
                 }
             }
-            if (count > 1)
-            {
-                groups.Add(count);
-            }
-            double result = 1;
-            foreach (var pow in groups)
-            {
-                result *= Math.Pow(2, pow);
-            }
+            double result = Math.Pow(2, count);
+
             Console.WriteLine(result);
         }
     }

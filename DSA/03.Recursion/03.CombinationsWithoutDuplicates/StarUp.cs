@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace _02.CombinationsWithDuplications
+namespace _03.CombinationsWithoutDuplicates
 {
-    internal static class StartUp
+    internal static class StarUp
     {
         static void Main()
         {
@@ -25,7 +25,7 @@ namespace _02.CombinationsWithDuplications
             for (int i = start; i <= numbers.Length; i++)
             {
                 numbers[index] = i + 1;
-                Recursion(n, index + 1, i, numbers);
+                Recursion(n, index + 1, i + 1, numbers);
             }
         }
 

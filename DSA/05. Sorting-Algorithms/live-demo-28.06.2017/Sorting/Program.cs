@@ -9,7 +9,7 @@ namespace Sorting
     {
         static void Main(string[] args)
         {
-            const int SIZE = 10000000;
+            const int SIZE = 1000;
             var array = new int[SIZE];
 
             var rnd = new Random();
@@ -23,7 +23,7 @@ namespace Sorting
             array.RadixRightToLeft(2, 65536);
             //array.MergeSortIterative();
             stopwatch.Stop();
-            //Console.WriteLine(String.Join(" ", array));
+            Console.WriteLine(String.Join(" ", array));
             Console.WriteLine(stopwatch.Elapsed);
 
 

@@ -78,6 +78,62 @@ namespace _01.tree_of_N_nodes
             //4. Find Longest Path from the root
             var longestPath = FindLongestPath(FindRoot(nodes));
             Console.WriteLine("Longest path from the root is: {0}", longestPath);
+
+            //5. DFS Recursive
+            Console.Write("DFS with recursion: ");
+            DFSRecursive(FindRoot(nodes));
+            Console.WriteLine(FindRoot(nodes).Value);
+
+            //6. DFS with stack
+            Console.Write("DFS withstack: ");
+            DFS(FindRoot(nodes));
+            Console.WriteLine();
+
+            //6. BFS with queue
+            Console.Write("BFS: ");
+            BFS(FindRoot(nodes));
+            Console.WriteLine();
+        }
+
+        private static void BFS(Node<int> node)
+        {
+            Queue<Node<int>> stack = new Queue<Node<int>>();
+            stack.Enqueue(node);
+            while (stack.Count > 0)
+            {
+                Node<int> currentNode = stack.Dequeue();
+                Console.Write(" {0}", currentNode.Value);
+                foreach (var child in currentNode.Cildren)
+                {
+                    stack.Enqueue(child);
+                }
+            }
+        }
+
+        private static void DFS(Node<int> node)
+        {
+            Stack<Node<int>> stack = new Stack<Node<int>>();
+            stack.Push(node);
+            while (stack.Count > 0)
+            {
+                Node<int> currentNode = stack.Pop();
+                Console.Write(" {0}", currentNode.Value);
+                foreach (var child in currentNode.Cildren)
+                {
+                    stack.Push(child);
+                }
+            }
+        }
+
+        private static void DFSRecursive(Node<int> node)
+        {
+            //Console.Write("{0} ", node.Value);
+
+            foreach (var child in node.Cildren)
+            {
+                DFSRecursive(child);
+                Console.Write("{0} ", child.Value);
+            }
         }
 
         private static int FindLongestPath(Node<int> root)
@@ -127,3 +183,12 @@ namespace _01.tree_of_N_nodes
         }
     }
 }
+/*
+7
+2 4
+3 2
+5 0
+3 5
+5 6
+5 1
+*/

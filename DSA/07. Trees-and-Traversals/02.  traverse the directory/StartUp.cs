@@ -24,6 +24,8 @@ namespace _02.traverse_the_directory
             foreach (string file in Directory.EnumerateFiles(folderPath, "*.exe"))
             {
                 contents.Add(file.ToLower());
+                var fileSize = new FileInfo(file).Length;
+                Console.WriteLine(fileSize);
             }
 
 

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friends of Pesho", "Friends
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dijkstra.Algoritm", "Dijkstra.Algoritm\Dijkstra.Algoritm.csproj", "{537AF4E9-3176-414E-992D-572BD09338E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salaries", "Salaries\Salaries.csproj", "{FF00E57C-3229-411B-B561-1ECFBA6DA944}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{537AF4E9-3176-414E-992D-572BD09338E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{537AF4E9-3176-414E-992D-572BD09338E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{537AF4E9-3176-414E-992D-572BD09338E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF00E57C-3229-411B-B561-1ECFBA6DA944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF00E57C-3229-411B-B561-1ECFBA6DA944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF00E57C-3229-411B-B561-1ECFBA6DA944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF00E57C-3229-411B-B561-1ECFBA6DA944}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

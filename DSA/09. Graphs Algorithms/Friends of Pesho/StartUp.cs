@@ -73,7 +73,7 @@ namespace Friends_of_Pesho
                 {
                     if (edge.EndNode == edges[i].StartNode && !used[edges[i].EndNode] )
                     {
-                        priority.Add(edge);
+                        priority.Add(edges[i]);
                     }
                 }
             }

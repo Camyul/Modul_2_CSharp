@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabinKarp", "RabinKarp\Rabi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMP", "KMP\KMP.csproj", "{B2D4E1C0-1A18-49A6-8E30-D8BBA427D3BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhoCorasick", "AhoCorasick\AhoCorasick.csproj", "{FCF3580E-2FDC-4694-9A04-A1B5265181A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B2D4E1C0-1A18-49A6-8E30-D8BBA427D3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2D4E1C0-1A18-49A6-8E30-D8BBA427D3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2D4E1C0-1A18-49A6-8E30-D8BBA427D3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCF3580E-2FDC-4694-9A04-A1B5265181A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF3580E-2FDC-4694-9A04-A1B5265181A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF3580E-2FDC-4694-9A04-A1B5265181A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF3580E-2FDC-4694-9A04-A1B5265181A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

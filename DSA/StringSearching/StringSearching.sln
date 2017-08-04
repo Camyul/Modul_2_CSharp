@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMP", "KMP\KMP.csproj", "{B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhoCorasick", "AhoCorasick\AhoCorasick.csproj", "{FCF3580E-2FDC-4694-9A04-A1B5265181A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Closest teo points", "Closest teo points\Closest teo points.csproj", "{356A237D-FEFC-42A3-823E-71D62D8EB9BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FCF3580E-2FDC-4694-9A04-A1B5265181A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCF3580E-2FDC-4694-9A04-A1B5265181A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCF3580E-2FDC-4694-9A04-A1B5265181A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{356A237D-FEFC-42A3-823E-71D62D8EB9BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356A237D-FEFC-42A3-823E-71D62D8EB9BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356A237D-FEFC-42A3-823E-71D62D8EB9BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356A237D-FEFC-42A3-823E-71D62D8EB9BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

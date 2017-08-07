@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Towns", "01. Towns\01. Towns.csproj", "{0F23189B-6BA6-4BBB-8832-26CECAA6AF32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Shortest Path", "02. Shortest Path\02. Shortest Path.csproj", "{9A9C3169-BEFF-4DAB-A364-7E8D179325CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0F23189B-6BA6-4BBB-8832-26CECAA6AF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F23189B-6BA6-4BBB-8832-26CECAA6AF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F23189B-6BA6-4BBB-8832-26CECAA6AF32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9C3169-BEFF-4DAB-A364-7E8D179325CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9C3169-BEFF-4DAB-A364-7E8D179325CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9C3169-BEFF-4DAB-A364-7E8D179325CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9C3169-BEFF-4DAB-A364-7E8D179325CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

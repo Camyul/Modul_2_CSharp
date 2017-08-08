@@ -6,76 +6,275 @@ namespace Friends_of_Pesho
 {
     class StartUp
     {
+
+
         static void Main()
         {
-            int[] numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-            int pointCount = numbers[0];
-            int edgeCount = numbers[1];
-            int hospitalCount = numbers[2];
+            int[] inputNumbers = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            int pointNumber = inputNumbers[0];
+            int streetNumber = inputNumbers[1];
+            int hospitalNumber = inputNumbers[2];
 
-            int[] hospitals = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            int[] allHospitals = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
 
-            var priority = new SortedSet<Edge>();
-            var edges = new List<Edge>();
-            var minimalPathNodes = new List<Edge>();
+            Dictionary<Node, List<Edge>> graph = new Dictionary<Node, List<Edge>>();
+            Dictionary<int, Node> allNodes = new Dictionary<int, Node>();
 
-            for (int i = 0; i < edgeCount; i++)
+            // Create graph wit all nodes and edges to nodes
+            for (int i = 0; i < streetNumber; i++)
             {
-                int[] edge = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-                edges.Add(new Edge(edge[0], edge[1], edge[2]));
+                int[] currentStreet = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+                int firstNode = currentStreet[0];
+                int secondNode = currentStreet[1];
+                int distance = currentStreet[2];
+
+                if (!allNodes.ContainsKey(firstNode))
+                {
+                    allNodes.Add(firstNode, new Node(firstNode));
+                }
+
+                if (!allNodes.ContainsKey(secondNode))
+                {
+                    allNodes.Add(secondNode, new Node(secondNode));
+                }
+
+                Node firstNodeObject = allNodes[firstNode];
+                Node secondNodeObject = allNodes[secondNode];
+
+                if (!graph.ContainsKey(firstNodeObject))
+                {
+                    graph.Add(firstNodeObject, new List<Edge>());
+                }
+                if (!graph.ContainsKey(secondNodeObject))
+                {
+                    graph.Add(secondNodeObject, new List<Edge>());
+                }
+
+                graph[firstNodeObject].Add(new Edge(secondNodeObject, distance));
+                graph[secondNodeObject].Add(new Edge(firstNodeObject, distance));
             }
 
-            foreach (var hospital in hospitals)
+            // Mark Nodes as Hospital
+            for (int i = 0; i < allHospitals.Length; i++)
             {
-                var used = new bool[pointCount + 1];
-                minimalPathNodes.Clear();
-                priority.Clear();
-                for (int i = 0; i < edges.Count; i++)
+                int currentHospital = allHospitals[i];
+                allNodes[currentHospital].IsHospital = true;
+            }
+
+            long result = long.MaxValue;
+
+            for (int i = 0; i < allHospitals.Length; i++)
+            {
+                int currentHospital = allHospitals[i];
+                Node currentHospitalNode = allNodes[currentHospital];
+
+                DijkstraAlgoritm(graph, currentHospitalNode);
+
+                long tempPath = 0;
+
+                foreach (var node in allNodes)
                 {
-                    if (edges[i].StartNode == hospital)
+                    if (node.Value.IsHospital)
                     {
-                        priority.Add(edges[i]);
-                        used[edges[i].StartNode] = true;
-                        var path = FindMinimumSpanningTree(used, priority, minimalPathNodes, edges);
-                        Console.WriteLine(path);
+                        continue;
+                    }
+
+                    tempPath += node.Value.DijkstraDistance;
+                }
+
+                if (tempPath < result)
+                {
+                    result = tempPath;
+                }
+            }
+            Console.WriteLine(result);
+
+        }
+
+        static void DijkstraAlgoritm(Dictionary<Node, List<Edge>> graph, Node source)
+        {
+            var queue = new PriorityQueue<Node>();
+
+            // All distances are equals to +infiniti
+            foreach (var node in graph)
+            {
+                node.Key.DijkstraDistance = long.MaxValue;
+            }
+
+            source.DijkstraDistance = 0l;
+            queue.Enqueue(source);
+
+            // Calculate distances for all nodes from source
+            while (queue.Count != 0)
+            {
+                Node currentNode = queue.Dequeue();
+                if (currentNode.DijkstraDistance == long.MaxValue)
+                {
+                    break;
+                }
+
+                foreach (var neighbor in graph[currentNode])
+                {
+                    var potDistance = currentNode.DijkstraDistance + neighbor.Distance;
+                    if (potDistance < neighbor.ToNode.DijkstraDistance)
+                    {
+                        neighbor.ToNode.DijkstraDistance = potDistance;
+                        queue.Enqueue(neighbor.ToNode);
                     }
                 }
             }
         }
 
-        private static int FindMinimumSpanningTree(bool[] used, SortedSet<Edge> priority, List<Edge> minimalPathNodes, List<Edge> edges)
+        public class Edge
         {
-            while (priority.Count > 0)
+            public Edge(Node toNode, long distance)
             {
-                Edge edge = priority.Min;
-                priority.Remove(edge);
+                this.ToNode = toNode;
+                this.Distance = distance;
+            }
 
-                if (!used[edge.EndNode])
+            public Node ToNode { get; set; }
+
+            public long Distance { get; set; }
+        }
+
+        public class Node : IComparable
+        {
+            public Node(int id)
+            {
+                this.Id = id;
+                this.IsHospital = false;
+            }
+
+            public int Id { get; set; }
+
+            public long DijkstraDistance { get; set; }
+
+            public bool IsHospital { get; set; }
+
+            public int CompareTo(object obj)
+            {
+                if (!(obj is Node))
                 {
-                    used[edge.EndNode] = true; // we visit this node
-                    minimalPathNodes.Add(edge);
-                    AddEdges(edge, edges, minimalPathNodes, priority, used);
+                    return -1;
+                }
+
+
+                return this.DijkstraDistance.CompareTo((obj as Node).DijkstraDistance);  
+            }
+        }
+
+        public class PriorityQueue<T> where T : IComparable
+        {
+            private T[] heap;
+            private int index;
+
+            public PriorityQueue()
+            {
+                this.heap = new T[16];
+                this.index = 1;
+            }
+
+            public int Count
+            {
+                get
+                {
+                    return this.index - 1;
                 }
             }
-            return CalculateMinimumPath(minimalPathNodes);
-        }
 
-        private static int CalculateMinimumPath(List<Edge> minimalPathNodes)
-        {
-           return minimalPathNodes.Select(x => x.Weight).Sum();
-        }
-
-        private static void AddEdges(Edge edge, List<Edge> edges, List<Edge> minimalPathNodes, SortedSet<Edge> priority, bool[] used)
-        {
-            for (int i = 0; i < edges.Count; i++)
+            public void Enqueue(T element)
             {
-                if (!minimalPathNodes.Contains(edges[i]))
+                if (this.index >= this.heap.Length)
                 {
-                    if (edge.EndNode == edges[i].StartNode && !used[edges[i].EndNode] )
+                    this.IncreaseArray();
+                }
+
+                this.heap[this.index] = element;
+
+                int childIndex = this.index;
+                int parentIndex = childIndex / 2;
+                this.index++;
+
+                while (parentIndex >= 1 && this.heap[childIndex].CompareTo(this.heap[parentIndex]) < 0)
+                {
+                    T swapValue = this.heap[parentIndex];
+                    this.heap[parentIndex] = this.heap[childIndex];
+                    this.heap[childIndex] = swapValue;
+
+                    childIndex = parentIndex;
+                    parentIndex = childIndex / 2;
+                }
+            }
+
+            public T Dequeue()
+            {
+                T result = this.heap[1];
+
+                this.heap[1] = this.heap[this.Count];
+                this.index--;
+
+                int rootIndex = 1;
+
+                while (true)
+                {
+                    int leftChildIndex = rootIndex * 2;
+                    int rightChildIndex = (rootIndex * 2) + 1;
+
+                    if (leftChildIndex > this.index)
                     {
-                        priority.Add(edges[i]);
+                        break;
+                    }
+
+                    int minChild;
+                    if (rightChildIndex > this.index)
+                    {
+                        minChild = leftChildIndex;
+                    }
+                    else
+                    {
+                        if (this.heap[leftChildIndex].CompareTo(this.heap[rightChildIndex]) < 0)
+                        {
+                            minChild = leftChildIndex;
+                        }
+                        else
+                        {
+                            minChild = rightChildIndex;
+                        }
+                    }
+
+                    if (this.heap[minChild].CompareTo(this.heap[rootIndex]) < 0)
+                    {
+                        T swapValue = this.heap[rootIndex];
+                        this.heap[rootIndex] = this.heap[minChild];
+                        this.heap[minChild] = swapValue;
+
+                        rootIndex = minChild;
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
+
+                return result;
+            }
+
+            public T Peek()
+            {
+                return this.heap[1];
+            }
+
+            private void IncreaseArray()
+            {
+                var copiedHeap = new T[this.heap.Length * 2];
+
+                for (int i = 0; i < this.heap.Length; i++)
+                {
+                    copiedHeap[i] = this.heap[i];
+                }
+
+                this.heap = copiedHeap;
             }
         }
     }

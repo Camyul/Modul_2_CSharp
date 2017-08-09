@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _04.ColorBalls
 {
@@ -27,6 +24,11 @@ namespace _04.ColorBalls
                 }
             }
 
+            char[] charArr = sequence.ToCharArray();
+
+            // Important array must be sorted!
+            Array.Sort(charArr);
+            sequence = new string(charArr);
             GeneratePermWithRepeat(sequence.ToCharArray(), 0, sequence.Length);
 
             Console.WriteLine(count);
@@ -34,7 +36,7 @@ namespace _04.ColorBalls
 
         private static void GeneratePermWithRepeat(char[] arr, int start, int n)
         {
-            Print(arr);
+            //Print(arr);
             count++;
 
             for (int left = n - 2; left >= start; left--)

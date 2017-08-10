@@ -11,8 +11,8 @@ namespace _07.SumOfSequence
         static void Main()
         {
             int t = int.Parse(Console.ReadLine());
-            List<int> results = new List<int>();
-            List<int> finalResults = new List<int>();
+            int result = 0;
+            var results = new List<int>();
             for (int i = 0; i < t; i++)
             {
                 int[] nk = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
@@ -22,37 +22,32 @@ namespace _07.SumOfSequence
                 int[] sequence = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
                 int[] comb = new int[k];
 
-                GenerateCombinationsNoRepeat(0, 0, k, n, sequence, comb, results);
+                result = 0;
+                GenerateCombinationsNoRepeat(0, 0, k, n,ref sequence, comb, ref result);
 
-                int finalResult = 0;
-                foreach (var result in results)
-                {
-                    finalResult += result;
-                }
-
-                finalResults.Add(finalResult);
+                results.Add(result);
 
             }
-                Console.WriteLine(string.Join("\n", finalResults));
+            Console.WriteLine(string.Join("\n", results));
         }
 
-        private static void GenerateCombinationsNoRepeat(int index, int start, int k, int n, int[] arr, int[] comb, List<int> results)
+        private static void GenerateCombinationsNoRepeat(int index, int start, int k, int n,ref int[] arr, int[] comb, ref int results)
         {
             if (index >= k)
             {
-                results.Add(Sum(comb, arr));
+                results += Sum(comb,ref arr);
             }
             else
             {
                 for (int i = start; i < n; i++)
                 {
                     comb[index] = i;
-                    GenerateCombinationsNoRepeat(index + 1, i + 1, k, n, arr, comb, results);
+                    GenerateCombinationsNoRepeat(index + 1, i + 1, k, n,ref arr, comb, ref results);
                 }
             }
         }
 
-        private static int Sum(int[] combination, int[] arr)
+        private static int Sum(int[] combination,ref int[] arr)
         {
             int sum = 0;
             for (int i = 0; i < combination.Length; i++)
@@ -61,12 +56,6 @@ namespace _07.SumOfSequence
             }
 
             return sum;
-            //Console.Write("( " + string.Join(", ", combination) + ") -->  ( ");
-            //for (int i = 0; i < combination.Length; i++)
-            //{
-            //    Console.Write(arr[combination[i]] + " ");
-            //}
-            //Console.WriteLine(")");
         }
     }
 }
@@ -78,5 +67,9 @@ namespace _07.SumOfSequence
 1 2 3 4
 5 3
 1 –5 7 10 –3
+
+1
+4 2
+-1 2 3 4
  
  */

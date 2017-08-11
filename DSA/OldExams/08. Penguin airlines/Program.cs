@@ -69,8 +69,7 @@ namespace _08.Penguin_airlines
                 {
                     continue;
                 }
-
-                visited.Add(currentIsland);
+                
                 Dfs(currentIsland, currentFlight, visited);
 
                 if (haveFlight)
@@ -86,24 +85,60 @@ namespace _08.Penguin_airlines
             }
         }
 
+        //private static void Dfs(Island currentIsland, Flight currentFlight, HashSet<Island> visited) // Recursive
+        //{
+        //    visited.Add(currentIsland);
+
+        //    foreach (var flight in currentIsland.Flights)
+        //    {
+        //        if (flight.endIsland == currentFlight.endIsland)
+        //        {
+        //            haveFlight = true;
+        //            return;
+        //        }
+        //        if (!visited.Contains(islands[flight.endIsland]))
+        //        {
+        //            Dfs(islands[flight.endIsland], currentFlight, visited);
+        //        }
+        //    }
+        //}
+
         private static void Dfs(Island currentIsland, Flight currentFlight, HashSet<Island> visited)
         {
-            //visited.Add(currentIsland);
+            Stack<Island> stackIslands = new Stack<Island>();
+            stackIslands.Push(currentIsland);
+            visited.Add(currentIsland);
 
-            foreach (var flight in currentIsland.Flights)
+            while (stackIslands.Count > 0)
             {
-                if (flight.endIsland == currentFlight.endIsland)
+                Island tempIsland = stackIslands.Pop();
+
+                foreach (var flight in tempIsland.Flights)
                 {
-                    haveFlight = true;
-                    return;
-                }
-                if (!visited.Contains(islands[flight.endIsland]))
-                {
-                    visited.Add(islands[flight.endIsland]);
-                    Dfs(islands[flight.endIsland], currentFlight, visited);
+                    if (flight.endIsland == currentFlight.endIsland)
+                    {
+                        haveFlight = true;
+                        return;
+                    }
+
+                    if (!visited.Contains(islands[flight.endIsland]))
+                    {
+                        stackIslands.Push(islands[flight.endIsland]);
+                        visited.Add(islands[flight.endIsland]);
+                    }
                 }
             }
+
+            /*
+        print v
+        for each child c of v
+          if not visited[c]
+            stack ← c
+            visited[c] = true
+
+            */
         }
+    
     }
 
     public class Flight

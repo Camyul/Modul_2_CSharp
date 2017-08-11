@@ -13,7 +13,7 @@ namespace _08.Penguin_airlines
 
         static void Main()
         {
-           
+
             int n = int.Parse(Console.ReadLine());
             for (int i = 0; i < n; i++)
             {
@@ -50,9 +50,10 @@ namespace _08.Penguin_airlines
 
             for (int i = 0; i < querys.Count; i++)
             {
+                haveFlight = false;
                 Flight currentFlight = querys[i];
                 Island currentIsland = islands[currentFlight.startIsland];
-                
+                HashSet<Island> visited = new HashSet<Island>();
 
                 foreach (var flight in currentIsland.Flights)
                 {
@@ -69,7 +70,8 @@ namespace _08.Penguin_airlines
                     continue;
                 }
 
-                Dfs(currentIsland, currentFlight);
+                visited.Add(currentIsland);
+                Dfs(currentIsland, currentFlight, visited);
 
                 if (haveFlight)
                 {
@@ -84,24 +86,23 @@ namespace _08.Penguin_airlines
             }
         }
 
-        private static void Dfs(Island currentIsland, Flight query)
+        private static void Dfs(Island currentIsland, Flight currentFlight, HashSet<Island> visited)
         {
-            HashSet<Island> visited = new HashSet<Island>();
-            visited.Add(currentIsland);
+            //visited.Add(currentIsland);
+
             foreach (var flight in currentIsland.Flights)
             {
-                if (flight.endIsland == query.endIsland)
+                if (flight.endIsland == currentFlight.endIsland)
                 {
                     haveFlight = true;
                     return;
                 }
+                if (!visited.Contains(islands[flight.endIsland]))
+                {
+                    visited.Add(islands[flight.endIsland]);
+                    Dfs(islands[flight.endIsland], currentFlight, visited);
+                }
             }
-
-            if (!visited.Contains(islands[query.endIsland]))
-            {
-                Dfs(islands[query.endIsland], query);
-            }
-           // return;
         }
     }
 
@@ -127,3 +128,13 @@ namespace _08.Penguin_airlines
         public List<Flight> Flights { get; set; }
     }
 }
+/*
+4
+2 3
+None
+0
+0
+2 1
+3 2
+Have a break
+*/

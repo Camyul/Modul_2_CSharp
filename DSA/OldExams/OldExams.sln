@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08. Penguin airlines", "08.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. Renewals", "09. Renewals\09. Renewals.csproj", "{11349D35-F4ED-4BB7-B29F-EF34CABC2902}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. Passwords", "10. Passwords\10. Passwords.csproj", "{832270A1-EC7F-4669-B590-E7B676F32037}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{11349D35-F4ED-4BB7-B29F-EF34CABC2902}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11349D35-F4ED-4BB7-B29F-EF34CABC2902}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11349D35-F4ED-4BB7-B29F-EF34CABC2902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832270A1-EC7F-4669-B590-E7B676F32037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832270A1-EC7F-4669-B590-E7B676F32037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832270A1-EC7F-4669-B590-E7B676F32037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832270A1-EC7F-4669-B590-E7B676F32037}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

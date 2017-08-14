@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. Renewals", "09. Renewal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. Passwords", "10. Passwords\10. Passwords.csproj", "{832270A1-EC7F-4669-B590-E7B676F32037}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. Sorting", "11. Sorting\11. Sorting.csproj", "{717FBD22-E516-4F45-B072-C099F084FB12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{832270A1-EC7F-4669-B590-E7B676F32037}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{832270A1-EC7F-4669-B590-E7B676F32037}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{832270A1-EC7F-4669-B590-E7B676F32037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{717FBD22-E516-4F45-B072-C099F084FB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{717FBD22-E516-4F45-B072-C099F084FB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{717FBD22-E516-4F45-B072-C099F084FB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{717FBD22-E516-4F45-B072-C099F084FB12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

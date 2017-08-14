@@ -8,40 +8,80 @@ namespace _12.Zig_Zag_Sequences
 {
     class Program
     {
+        static int count;
+
         static void Main()
         {
-            string[] arr = { "1", "2", "3", "4" };
-            GeneratePermutations(arr, 0);
+            int[] input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            int n = input[0];
+            int k = input[1];
+
+            if (k == 1)
+            {
+                Console.WriteLine(n);
+                return;
+            }
+            int[] numbers = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                numbers[i] = i;
+            }
+
+            count = 0;
+            int[] currentVariation = new int[k];
+            bool[] used = new bool[n];
+            GenerateVariationsNoRepetitions(0, currentVariation, used, numbers);
+
+            Console.WriteLine(count);
+           
         }
 
-        private static void GeneratePermutations<T>(T[] arr, int k)
+        static void GenerateVariationsNoRepetitions(int index, int[] currVariation, bool[] used, int[] numbers)
         {
-            if (k >= arr.Length)
+            if (index >= currVariation.Length)
             {
-                Print(arr);
+                int tempCount = 0;
+                for (int i = 0; i < currVariation.Length - 1; i++)
+                {
+                    if (currVariation[i] > currVariation[i + 1] && i % 2 == 0)
+                    {
+                        tempCount++;
+                    }
+                    else if (currVariation[i] < currVariation[i + 1] && i % 2 == 1)
+                    {
+                        tempCount++;
+                    }
+                }
+                if (tempCount == currVariation.Length - 1)
+                {
+                    ++count;
+                }
+                
             }
             else
             {
-                GeneratePermutations(arr, k + 1);
-                for (int i = k + 1; i < arr.Length; i++)
+                for (int i = 0; i < numbers.Length; i++)
                 {
-                    Swap(ref arr[k], ref arr[i]);
-                    GeneratePermutations(arr, k + 1);
-                    Swap(ref arr[k], ref arr[i]);
+                    if (!used[i])
+                    {
+                        used[i] = true;
+                        currVariation[index] = i;
+                        
+                        GenerateVariationsNoRepetitions(index + 1, currVariation, used, numbers);
+                        used[i] = false;
+                    }
                 }
             }
         }
 
-        private static void Swap<T>(ref T first, ref T second)
+        static void PrintVariations(int[] currVariation, int[] numbers)
         {
-            T oldFirst = first;
-            first = second;
-            second = oldFirst;
-        }
-
-        private static void Print<T>(T[] arr)
-        {
-            Console.WriteLine(string.Join(" ", arr));
+            Console.Write("(" + String.Join(", ", currVariation) + ") --> ( ");
+            for (int i = 0; i < currVariation.Length; i++)
+            {
+                Console.Write(numbers[currVariation[i]] + " ");
+            }
+            Console.WriteLine(")");
         }
     }
 }

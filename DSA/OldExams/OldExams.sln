@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12. Zig-Zag Sequences", "12
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13. Player ranking", "13. Player ranking\13. Player ranking.csproj", "{3F56ADA6-463D-4C91-B6EA-3C4FB25A6F0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14. Swapping", "14. Swapping\14. Swapping.csproj", "{5579472E-E93D-48C7-9CDD-77DDFCCBCEF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{3F56ADA6-463D-4C91-B6EA-3C4FB25A6F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F56ADA6-463D-4C91-B6EA-3C4FB25A6F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F56ADA6-463D-4C91-B6EA-3C4FB25A6F0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5579472E-E93D-48C7-9CDD-77DDFCCBCEF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5579472E-E93D-48C7-9CDD-77DDFCCBCEF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5579472E-E93D-48C7-9CDD-77DDFCCBCEF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5579472E-E93D-48C7-9CDD-77DDFCCBCEF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Wintellect.PowerCollections;
 
 namespace _13.Player_ranking
 {
@@ -100,7 +101,7 @@ namespace _13.Player_ranking
     }
     class Program
     {
-        static List<Player> collection = new List<Player>();
+        static BigList<Player> collection = new BigList<Player>();
 
         static void Main()
         {

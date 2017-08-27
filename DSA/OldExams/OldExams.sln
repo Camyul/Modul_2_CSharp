@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14. Swapping", "14. Swappin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15. Bike", "15. Bike\15. Bike.csproj", "{74564EB4-7BEF-4984-8255-68977577869C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16. The Rings of the Academy", "16. The Rings of the Academy\16. The Rings of the Academy.csproj", "{9FEBAB74-5B7C-4BC9-920E-D2E79D9CC8E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{74564EB4-7BEF-4984-8255-68977577869C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74564EB4-7BEF-4984-8255-68977577869C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74564EB4-7BEF-4984-8255-68977577869C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FEBAB74-5B7C-4BC9-920E-D2E79D9CC8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FEBAB74-5B7C-4BC9-920E-D2E79D9CC8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FEBAB74-5B7C-4BC9-920E-D2E79D9CC8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FEBAB74-5B7C-4BC9-920E-D2E79D9CC8E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

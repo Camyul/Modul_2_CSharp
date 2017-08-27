@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Hourses", "01. Hourses\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Doge Coin", "02. Doge Coin\02. Doge Coin.csproj", "{A80E374D-8409-4350-9A53-D01AD5C60864}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Hungry Tom", "03. Hungry Tom\03. Hungry Tom.csproj", "{D3980B82-1BBD-47AB-A879-2827D39A72B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A80E374D-8409-4350-9A53-D01AD5C60864}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A80E374D-8409-4350-9A53-D01AD5C60864}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A80E374D-8409-4350-9A53-D01AD5C60864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3980B82-1BBD-47AB-A879-2827D39A72B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3980B82-1BBD-47AB-A879-2827D39A72B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3980B82-1BBD-47AB-A879-2827D39A72B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3980B82-1BBD-47AB-A879-2827D39A72B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -82,7 +82,6 @@ namespace _03.Hungry_Tom
 
                 if (door.EndRoom.Val == 1 && index == rooms.Length - 1)
                 {
-                    // Console.WriteLine(string.Join(" ", path));
                     var result = path.ToArray();
                     results.Add(result);
                     return;

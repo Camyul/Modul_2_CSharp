@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. A Box Full of Balls", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. Office Space - Recursive", "10. Office Space - Recursive\10. Office Space - Recursive.csproj", "{2E822D9C-C6A2-46E9-9D6B-0F8AA2B43BA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. Guards", "11. Guards\11. Guards.csproj", "{2E9A457C-80F2-46F7-8D5B-94C1705ACA71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. Guards v2", "11. Guards v2\11. Guards v2.csproj", "{F5A3D59A-8392-49B2-8E0D-29F57B3959F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{2E822D9C-C6A2-46E9-9D6B-0F8AA2B43BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E822D9C-C6A2-46E9-9D6B-0F8AA2B43BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E822D9C-C6A2-46E9-9D6B-0F8AA2B43BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9A457C-80F2-46F7-8D5B-94C1705ACA71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9A457C-80F2-46F7-8D5B-94C1705ACA71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9A457C-80F2-46F7-8D5B-94C1705ACA71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9A457C-80F2-46F7-8D5B-94C1705ACA71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5A3D59A-8392-49B2-8E0D-29F57B3959F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A3D59A-8392-49B2-8E0D-29F57B3959F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A3D59A-8392-49B2-8E0D-29F57B3959F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A3D59A-8392-49B2-8E0D-29F57B3959F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

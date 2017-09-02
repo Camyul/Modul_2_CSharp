@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace _10.Office_Space___Recursive
 {
     class Program
-    {                   // 92/100
+    {                   
         static int[] answers = new int[50];
+        static bool isCircular = false;
+
         static void Main()
         {
             var n = int.Parse(Console.ReadLine());
@@ -25,6 +27,11 @@ namespace _10.Office_Space___Recursive
             for (int i = 0; i < n; i++)
             {
                 answers[i] = CalcMinTime(i, minutes, dependencies);
+                if (isCircular)
+                {
+                    Console.WriteLine(-1);
+                    return;
+                }
             }
 
             Console.WriteLine(answers.Max());
@@ -32,6 +39,11 @@ namespace _10.Office_Space___Recursive
 
         static int CalcMinTime(int taskId, int[] minutes, List<int>[] dependencies)
         {
+            if (answers[taskId] < 0)
+            {
+                isCircular = true;
+            }
+
             if (answers[taskId] != 0)
             {
                 return answers[taskId];
@@ -41,6 +53,8 @@ namespace _10.Office_Space___Recursive
             {
                 return minutes[taskId];
             }
+
+            answers[taskId] = -1;
 
             int maxDependecyTime = 0;
             foreach (int dependencyId in dependencies[taskId])
